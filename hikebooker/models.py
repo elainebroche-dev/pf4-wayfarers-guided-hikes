@@ -41,9 +41,10 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['created_on']
- 
+
     def __str__(self):
         return f'Comment {self.message} by {self.username}'
+
 
 class Schedule(models.Model):
     hike = models.ForeignKey(Hike, on_delete=models.CASCADE,
@@ -67,7 +68,7 @@ class Booking(models.Model):
                              related_name='hike_bookings')
     username = models.ForeignKey(User, on_delete=models.CASCADE,
                                  related_name="user_bookings")
-    places_reserved = models.IntegerField(validators=[MinValueValidator(1),])
+    places_reserved = models.IntegerField(validators=[MinValueValidator(1), ])
     approved = models.BooleanField(default=False)
 
     def __str__(self):
