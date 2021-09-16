@@ -1,1 +1,1 @@
-web: gunicorn pf4-wayfarers.wsgi
+web: gunicorn wayfarers.wsgi
