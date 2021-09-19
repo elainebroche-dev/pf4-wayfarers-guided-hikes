@@ -117,17 +117,6 @@ body {
     margin-left: 5%;
 }
 
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
 .link {
     color: #23BBBB;
     text-decoration: none;
@@ -178,3 +167,50 @@ body {
  .navbar {
      padding: 1rem;
  }
+
+ .auth-card {
+    border: 0;
+    border-radius: 27.5px;
+    box-shadow: 0 10px 30px 0 rgb(172 168 168 / 43%);
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.auth-container {
+    margin-top: 3rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.auth-card form {
+    max-width: 300px;
+}
+
+.auth-card .auth-btn {
+    padding: 13px 20px 12px;
+    background-color: #000;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.auth-btn {
+    width: 100%;
+}
+
+.full-background {
+    background-image: url("../images/auth_background.jpg"); 
+    background-size: 2000px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav-link.active {
+    font-weight: 500;
+}
+

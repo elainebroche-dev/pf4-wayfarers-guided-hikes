@@ -3,81 +3,82 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <!-- jumbotron for an introduction message -->
-    <div class="jumbotron jumbotron-img">
-        <div class="welcome-text">
-            <h1>Banff national park hikes</h1>
-            <h4>Book a guided hike to explore this incredible landscape</h4>
-            <span class="quote-text">
-                Not all who wander are lost - JRR Tolkien
-            </span>
+<div class="main-bg">
+    <div class="container-fluid">
+        <!-- jumbotron for an introduction message -->
+        <div class="jumbotron jumbotron-img">
+            <div class="welcome-text">
+                <h1>Banff national park hikes</h1>
+                <h4>Book a guided hike to explore this incredible landscape</h4>
+                <span class="quote-text">
+                    Not all who wander are lost - JRR Tolkien
+                </span>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <!-- Hike Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-            {% for hike in hike_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in hike.featured_image.url %}
-                                <img class="card-img-top"
-                                src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ hike.featured_image.url }}">
-                                {% endif %}
-                                {% if hike.difficulty == 0 %}
-                                <div class="image-flash image-bkgd-easy">
-                                    <p class="difficulty">Easy</p>
+        <div class="row">
+            <!-- Hike Entries Column -->
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    {% for hike in hike_list %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if "placeholder" in hike.featured_image.url %}
+                                    <img class="card-img-top" src="{% static 'images/default_hike_pic.jpg' %}"
+                                        alt="Default hiking image">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ hike.featured_image.url }}">
+                                    {% endif %}
+                                    {% if hike.difficulty == 0 %}
+                                    <div class="image-flash image-bkgd-easy">
+                                        <p class="difficulty">Easy</p>
+                                    </div>
+                                    {% elif hike.difficulty == 1 %}
+                                    <div class="image-flash image-bkgd-mod">
+                                        <p class="difficulty">Moderate</p>
+                                    </div>
+                                    {% elif hike.difficulty == 2 %}
+                                    <div class="image-flash image-bkgd-hard">
+                                        <p class="difficulty">Hard</p>
+                                    </div>
+                                    {% endif %}
                                 </div>
-                                {% elif hike.difficulty == 1 %}
-                                <div class="image-flash image-bkgd-mod">
-                                    <p class="difficulty">Moderate</p>
-                                </div>
-                                {% elif hike.difficulty == 2 %} 
-                                <div class="image-flash image-bkgd-hard">
-                                    <p class="difficulty">Hard</p>
-                                </div>
-                                {% endif %}
+                                <a href="{% url 'hike_detail' hike.slug %}" class="hike-link">
+                                    <h2 class="card-title">{{ hike.title }}</h2>
+                                    <p class="card-text">
+                                        Distance : {{ hike.distance_km.normalize }} kms<br>
+                                        Estimate Duration : {{ hike.est_duration_hrs.normalize }} hours
+                                    </p>
+                                </a>
+                                <hr />
+                                <p class="card-text text-muted h6"><i class="far fa-heart"></i>
+                                    {{ hike.number_of_likes }}</p>
                             </div>
-                            <a href="{% url 'hike_detail' hike.slug %}" class="hike-link">
-                                <h2 class="card-title">{{ hike.title }}</h2>
-                                <p class="card-text">
-                                    Distance : {{ hike.distance_km.normalize }} kms<br>
-                                    Estimate Duration : {{ hike.est_duration_hrs.normalize }} hours
-                                </p>
-                            </a>
-                            <hr />
-                            <p class="card-text text-muted h6"><i class="far fa-heart"></i>
-                                {{ hike.number_of_likes }}</p>
                         </div>
                     </div>
+                    {% if forloop.counter|divisibleby:3 %}
                 </div>
-            {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-            {% endif %}
-            {% endfor %}
+                <div class="row">
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
-
 {%endblock%}
