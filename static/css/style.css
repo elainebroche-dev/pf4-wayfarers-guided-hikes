@@ -71,13 +71,12 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
     width: 100%;
 }
 
 .masthead-text {
-    background-color: #445261;
-    color: white;
+    background-color: white;
+    color: black;
     position: relative;
 }
 
@@ -86,18 +85,16 @@ body {
     overflow: hidden;
 }
 
-.masthead-image:after {
-    content: "";
+.masthead-image img {
+    width: 100%
+}
+
+.masthead-flash {
     position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
+    top: 5%;
+    min-width: 30%;
+    left: 2%;
+    border-radius: 25px;
 }
 
 .hike-link {
@@ -116,8 +113,8 @@ body {
 }
 
 .hike-subtitle {
+    padding-top : 2rem;
     margin-left: 5%;
-    color: lightgray;
 }
 
 .btn-signup {

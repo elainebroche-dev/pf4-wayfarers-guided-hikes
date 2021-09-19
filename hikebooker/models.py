@@ -32,7 +32,7 @@ class Hike(models.Model):
 
 class Comment(models.Model):
     hike = models.ForeignKey(Hike, on_delete=models.CASCADE,
-                             related_name='hike_comments')
+                             related_name='comments')
     username = models.ForeignKey(User, on_delete=models.CASCADE,
                                  related_name="user_comments")
     message = models.TextField()
