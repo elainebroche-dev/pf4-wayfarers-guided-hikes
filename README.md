@@ -98,6 +98,7 @@ project is banffnp and app is hikebooker
 -   [psycopg2](https://pypi.org/project/psycopg2/) database adapter to support the connection to the postgres db
 -   [Cloudinary](https://cloudinary.com/) used to store the images used by the application
 -   [Summernote](https://pypi.org/project/django-summernote/) used to provide WYSIWYG editing on the Hike editing screen
+-   [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) used for account registration and authentication
 
 ## Testing
 
@@ -227,6 +228,9 @@ round decimal field to 2 places https://stackoverflow.com/questions/37958130/aut
 information on jumbotron images
 https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-background-image
 - code on how to removed trailing zeroes from decimal fields - normalize function - https://stackoverflow.com/questions/40135464/django-remove-trailing-zeroes-for-a-decimal-in-a-template
+- code/setting to turn off auth email verification : https://stackoverflow.com/questions/53968044/django-user-registration-error-with-django-rest-auth-package
+- some ideas on how to format the authentication/login/reg etc pages came from : https://www.bootstrapdash.com/product/free-bootstrap-login/#product-demo-section
+- help with navbar active : https://stackoverflow.com/questions/32931436/active-tag-on-bootstrap-with-django
 
 ### Configuration and Deployment
 - The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
@@ -255,6 +259,8 @@ hike_pic_11.jpg : Photo by <a href="https://unsplash.com/@wanderingteddybear?utm
 hike_pic_12.jpg : Photo by <a href="https://unsplash.com/@hiking_corgi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vlad D</a> on <a href="https://unsplash.com/s/photos/hike-meadow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_13.jpg : Photo by <a href="https://unsplash.com/@322delta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joe Klune</a> on <a href="https://unsplash.com/s/photos/hike-meadow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
        
+  
+background for login : Photo by <a href="https://unsplash.com/@baileyzindel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bailey Zindel</a> on <a href="https://unsplash.com/s/photos/mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
   
 
