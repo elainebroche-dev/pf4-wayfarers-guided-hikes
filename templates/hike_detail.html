@@ -1,96 +1,123 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="d-block col-md-8 masthead-image">
-                <!-- display default hike image if a featured image is not available -->
-                {% if "placeholder" in hike.featured_image.url %}
-                <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image">
-                {% else %}
-                <img src="{{ hike.featured_image.url }}"  >
-                {% endif %}
-            </div>
-            <div class="col-md-4 masthead-text">
-                <!-- Hike title goes in these h1 tags -->
-                <h1 class="hike-title">{{ hike.title }} </h1>
-                <!-- Hike difficulty rating and hike details created date  -->
-                <p class="hike-subtitle"> 
-                    Distance : {{ hike.distance_km.normalize }} kms<br>
-                    Estimate Duration : {{ hike.est_duration_hrs.normalize }} hours 
-                </p>
-                {% if hike.difficulty == 0 %}
-                <div class="masthead-flash image-bkgd-easy">
-                    <p class="difficulty">Easy</p>
-                </div>
-                {% elif hike.difficulty == 1 %}
-                <div class="masthead-flash image-bkgd-mod">
-                    <p class="difficulty">Moderate</p>
-                </div>
-                {% elif hike.difficulty == 2 %} 
-                <div class="masthead-flash image-bkgd-hard">
-                    <p class="difficulty">Hard</p>
-                </div>
-                {% endif %}
-            </div>
+{% load crispy_forms_tags %}
 
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The hike content/description goes inside the card-text.  -->
-                <!--  this content can only be added by admin so can be codsidered 'safe' -->
-                <p class="card-text ">  {{ hike.content | safe }}
-                    Details Created : {{hike.created_on }} <br>
-                    Last Updated : {{hike.updated_on }} <br>
-                </p>
-                
-                <div class="row">
-                    <div class="col-1">
-                        <!-- show the number of likes -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ hike.number_of_likes }}  </strong>
-                    </div>
-                    <div class="col-1">
-                        <!-- show the number of comments -->
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            {{ total_comments }}  
-                        </strong>
-                        {% endwith %}
-                    </div>
+<div class="main-bg">
+    <div class="masthead">
+        <div class="container">
+            <div class="row g-0">
+                <div class="d-block col-md-8 masthead-image">
+                    <!-- display default hike image if a featured image is not available -->
+                    {% if "placeholder" in hike.featured_image.url %}
+                    <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image">
+                    {% else %}
+                    <img src="{{ hike.featured_image.url }}">
+                    {% endif %}
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- loop to iterate through each comment in comments -->
-                {% for comment in comments %} 
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <!-- display commenter's name and when comment was created  -->
-                        {{  comment.username }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }} 
-                        </span> wrote:
+                <div class="col-md-4 masthead-text">
+                    <!-- Hike title goes in these h1 tags -->
+                    <h1 class="hike-title">{{ hike.title }} </h1>
+                    <!-- Hike difficulty rating and hike details created date  -->
+                    <p class="hike-subtitle">
+                        Distance : {{ hike.distance_km.normalize }} kms<br>
+                        Estimate Duration : {{ hike.est_duration_hrs.normalize }} hours
                     </p>
-                    <!-- The body of the comment with formatting -->
-                    {{  comment.message | linebreaks }} 
+                    {% if hike.difficulty == 0 %}
+                    <div class="masthead-flash image-bkgd-easy">
+                        <p class="difficulty">Easy</p>
+                    </div>
+                    {% elif hike.difficulty == 1 %}
+                    <div class="masthead-flash image-bkgd-mod">
+                        <p class="difficulty">Moderate</p>
+                    </div>
+                    {% elif hike.difficulty == 2 %}
+                    <div class="masthead-flash image-bkgd-hard">
+                        <p class="difficulty">Hard</p>
+                    </div>
+                    {% endif %}
                 </div>
-                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <!-- The hike content/description goes inside the card-text.  -->
+                    <!--  this content can only be added by admin so can be codsidered 'safe' -->
+                    <p class="card-text "> {{ hike.content | safe }}
+                        Details Created : {{hike.created_on }} <br>
+                        Last Updated : {{hike.updated_on }} <br>
+                    </p>
+
+                    <div class="row">
+                        <div class="col-1">
+                            <!-- show the number of likes -->
+                            <strong class="text-secondary"><i class="far fa-heart"></i> {{ hike.number_of_likes }}
+                            </strong>
+                        </div>
+                        <div class="col-1">
+                            <!-- show the number of comments -->
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                {{ total_comments }}
+                            </strong>
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 card mb-4  mt-3 ">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    <!-- loop to iterate through each comment in comments -->
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            <!-- display commenter's name and when comment was created  -->
+                            {{  comment.username }}
+                            <span class=" text-muted font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        <!-- The body of the comment with formatting -->
+                        {{  comment.message | linebreaks }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4 card mb-4  mt-3 ">
+                <div class="card-body">
+                    <!-- allow user to add comments if logged in  -->
+                    {% if commented %} 
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting approval
+                    </div>
+                    {% else %} 
+
+                    {% if user.is_authenticated %}
+
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" class="comment-form">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-block btn-form mb-4">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

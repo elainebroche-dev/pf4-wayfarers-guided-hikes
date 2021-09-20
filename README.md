@@ -99,6 +99,7 @@ project is banffnp and app is hikebooker
 -   [Cloudinary](https://cloudinary.com/) used to store the images used by the application
 -   [Summernote](https://pypi.org/project/django-summernote/) used to provide WYSIWYG editing on the Hike editing screen
 -   [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) used for account registration and authentication
+-   [Django crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to simplify form rendering
 
 ## Testing
 
