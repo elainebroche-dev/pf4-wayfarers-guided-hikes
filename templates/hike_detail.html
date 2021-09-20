@@ -56,10 +56,31 @@
 
                     <div class="row">
                         <div class="col-1">
-                            <!-- show the number of likes -->
-                            <strong class="text-secondary"><i class="far fa-heart"></i> {{ hike.number_of_likes }}
+                            <!-- show the number of likes and allow authenticated used to use like button -->
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" action="{% url 'hike_like' hike.slug %}" method="POST">
+                                    {% csrf_token %} 
+
+                                    {% if liked %} 
+                                    <button type="submit" name="hike_id" value="{{hike.slug}}" class="btn-like"><i
+                                            class="fas fa-heart"></i></button>
+
+                                    {% else %}  
+                                    <button type="submit" name="hike_id" value="{{hike.slug}}" class="btn-like"><i
+                                        class="far fa-heart"></i></button>
+
+                                    {% endif %}
+                                </form>
+
+                                {% else %} 
+                                <span class="text-secondary"><i class="far fa-heart"></i></span>
+
+                                {% endif %} 
+                                <span class="text-secondary"> {{ hike.number_of_likes }} </span>
                             </strong>
                         </div>
+
                         <div class="col-1">
                             <!-- show the number of comments -->
                             {% with comments.count as total_comments %}
@@ -83,7 +104,7 @@
                 <div class="card-body">
                     <!-- loop to iterate through each comment in comments -->
                     {% for comment in comments %}
-                    <div class="comments" style="padding: 10px;">
+                    <div class="comments">
                         <p class="font-weight-bold">
                             <!-- display commenter's name and when comment was created  -->
                             {{  comment.username }}

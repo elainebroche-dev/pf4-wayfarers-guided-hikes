@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Hike
 from .forms import CommentForm
 
@@ -63,3 +64,16 @@ class HikeDetail(View):
                 "comment_form": CommentForm()
             }
         )
+
+
+class HikeLike(View):
+
+    def post(self, request, slug):
+        hike = get_object_or_404(Hike, slug=slug)
+
+        if hike.likes.filter(id=request.user.id).exists():
+            hike.likes.remove(request.user)
+        else:
+            hike.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('hike_detail', args=[slug]))
