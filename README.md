@@ -232,6 +232,12 @@ https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-back
 - code/setting to turn off auth email verification : https://stackoverflow.com/questions/53968044/django-user-registration-error-with-django-rest-auth-package
 - some ideas on how to format the authentication/login/reg etc pages came from : https://www.bootstrapdash.com/product/free-bootstrap-login/#product-demo-section
 - help with navbar active : https://stackoverflow.com/questions/32931436/active-tag-on-bootstrap-with-django
+- code to remove class from base.html : https://stackoverflow.com/questions/34232936/dry-method-to-add-a-class-to-body-in-the-base-template
+- code to help with order_by for composite foreign key : https://stackoverflow.com/questions/1474135/django-admin-ordering-of-foreignkey-and-manytomanyfield-relations-referencing-u
+- code to help filter upcoming bookings : https://stackoverflow.com/questions/21576727/django-records-greater-than-particular-date
+- code to build dropdown for schedule : https://stackoverflow.com/questions/57533058/django-how-to-add-items-to-bootstrap-dropdown
+- code on how to build dropdown : https://getbootstrap.com/docs/5.0/components/dropdowns/
+- code on how to make 12345 list : https://stackoverflow.com/questions/4395230/building-a-list-in-django-templates
 
 ### Configuration and Deployment
 - The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)

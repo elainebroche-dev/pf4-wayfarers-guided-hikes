@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body_class %}{ }{% endblock %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+
+                {% if bookings %}
+                booking found
+                {% else %}
+                no booking found
+                {% endif %}
+                {% for booking in bookings %}
+                <div class="comments">
+                    <p class="font-weight-bold">
+                        <!-- display commenter's name and when comment was created  -->
+                        {{  booking.username }}
+                        <span class=" text-muted font-weight-normal">
+                            {{ booking.hike.hike }}
+                            {{ booking.hike.starts }}
+                        </span>
+                    </p>
+                    <!-- The body of the comment with formatting -->
+                    {{ booking.places_reserved }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
