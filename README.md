@@ -38,6 +38,12 @@ project is banffnp and app is hikebooker
 
 - __to be written__
     - Cto be written
+    - confirmation modal dialog is very basic and could be improved
+    - booking form could be improved to show a month to view calendar with colour coding for scheduled hikes rather than the drop-down
+    - functionality could be added to check for hike capacity and compare that with the booking request to automatically approve/confirm bookings
+    - google maps could be included to pin hike meeting points and show routes
+    - a weather app/widget could be included to show forcasted weather conditions
+    
 
 ## Design
 
