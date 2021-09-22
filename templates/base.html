@@ -41,7 +41,7 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a {% if 'bookings' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'hike_mybookings' %}">Bookings</a>
+                        <a {% if 'book' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'hike_mybookings' %}">Bookings</a>
                     </li>
                     <li class="nav-item">
                         <a {% if 'logout' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'account_logout' %}">Sign out</a>
@@ -79,7 +79,7 @@
     <footer class="footer mt-auto py-3 footer-bg">
         
         <p class="m-0 text-center social-networks">Keep in touch : 
-        
+        {{ request.path }}
                 <a href="https://instagram.com" target="_blank" rel="noopener"
                     aria-label="Visit our Instagram page (opens in a new tab)"><i
                         class="fab fa-instagram ms-3"></i></a>
