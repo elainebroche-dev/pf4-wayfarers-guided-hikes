@@ -41,7 +41,7 @@
 
                 {% if user.is_authenticated %}
                 <div class="hike-subitem booking-panel">
-                    <form action="{% url 'hike_book' hike.slug %}" method="POST">
+                    <form action="{% url 'hike_book'  %}" method="POST">
                         {% csrf_token %}
                         <div class="form-group">
                             <label class="form-label" for="scheduleFormControlSelect">Scheduled Hikes</label>

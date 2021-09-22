@@ -6,26 +6,56 @@
 
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
+        Your upcoming hikes
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col card mb-4  mt-3 left top">
             <div class="card-body">
-
-                {% if bookings %}
-                booking found
-                {% else %}
-                no booking found
-                {% endif %}
                 {% for booking in bookings %}
-                <div class="comments">
-                    <p class="font-weight-bold">
-                        <!-- display commenter's name and when comment was created  -->
-                        {{  booking.username }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ booking.hike.hike }}
-                            {{ booking.hike.starts }}
-                        </span>
-                    </p>
-                    <!-- The body of the comment with formatting -->
-                    {{ booking.places_reserved }}
+                <div class="booking-details booking-card">
+                    <div class="row">
+                        <div class="col-auto">
+                            {% if "placeholder" in booking.hike.hike.featured_image.url %}
+                            <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image" class="booking-img">
+                            {% else %}
+                            <img src="{{ booking.hike.hike.featured_image.url }}" class="booking-img">
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                {{ booking.hike.hike }}
+                            </div>
+                            <div class="row">
+                                Start time : {{ booking.hike.starts }}
+                            </div>
+                            <div class="row">
+                                Meeting point : {{ booking.hike.meeting_point }}
+                            </div>
+                        </div>
+                        <form action="{% url 'hike_mybookings' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="col">
+                                <button type="submit" value="{{booking.id}}" name="cancel_booking_id" onclick="return confirm('Are you sure?')">Cancel Booking</button>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                {% if booking.places_reserved == 1 %}
+                                    <i class="fas fa-user"> {{ booking.places_reserved }}</i>
+                                {% else %}
+                                    <i class="fas fa-user-friends"> {{ booking.places_reserved }}</i>
+                                {% endif %}
+                            </div>
+                            <div class="col">
+                                {% if booking.approved %}
+                                <i class="fas fa-check-circle"> Confirmed</i>
+                                {% else %}
+                                <i class="fas fa-question-circle"> Awaiting Confirmation</i>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>

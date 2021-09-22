@@ -100,10 +100,29 @@ class HikeMyBookings(View):
             }
         )
 
+    def post(self, request, *args, **kwargs):
+        id = request.POST.get('cancel_booking_id')
+        booking = get_object_or_404(Booking, id=id)
+        booking.delete()
+
+        bookings = Booking.objects.filter(username=self.request.user).filter(
+                    hike__starts__gt=date.today()).order_by('hike__starts')
+
+        return render(
+            request,
+            "hike_mybookings.html",
+            {
+                "bookings": bookings,
+            }
+        )
+
+
+
+
 
 class HikeBook(View):
 
-    def post(self, request, slug):
+    def post(self, request):
 
         user = request.user
         places_reserved = request.POST.get('places_reserved')
