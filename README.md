@@ -244,6 +244,7 @@ https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-back
 - code to build dropdown for schedule : https://stackoverflow.com/questions/57533058/django-how-to-add-items-to-bootstrap-dropdown
 - code on how to build dropdown : https://getbootstrap.com/docs/5.0/components/dropdowns/
 - code on how to make 12345 list : https://stackoverflow.com/questions/4395230/building-a-list-in-django-templates
+- code on how to display messages to user : https://stackoverflow.com/questions/28240746/django-how-to-implement-alertpopup-message-after-complete-method-in-view
 
 ### Configuration and Deployment
 - The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)

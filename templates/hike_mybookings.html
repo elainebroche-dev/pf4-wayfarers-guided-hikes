@@ -5,8 +5,8 @@
 
 
 <div class="container">
-    <div class="row">
-        Your upcoming hikes
+    <div class="row booking-title">
+        <h3>Your upcoming hikes</h3>
     </div>
     <hr>
     <div class="row">
@@ -16,47 +16,57 @@
                 <div class="booking-details booking-card">
                     <div class="row">
                         <div class="col-auto">
-                            {% if "placeholder" in booking.hike.hike.featured_image.url %}
-                            <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image" class="booking-img">
-                            {% else %}
-                            <img src="{{ booking.hike.hike.featured_image.url }}" class="booking-img">
-                            {% endif %}
+                            <a href="{% url 'hike_detail' booking.hike.hike.slug %}" class="hike-link">
+                                <div class="col-auto">
+                                    {% if "placeholder" in booking.hike.hike.featured_image.url %}
+                                    <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image" class="booking-img">
+                                    {% else %}
+                                    <img src="{{ booking.hike.hike.featured_image.url }}" class="booking-img">
+                                    {% endif %}
+                                </div>
+                            </a>
                         </div>
-                        <div class="col">
+                        <div class="col booking-summary">
                             <div class="row">
-                                {{ booking.hike.hike }}
+                                <a href="{% url 'hike_detail' booking.hike.hike.slug %}" class="hike-link">
+                                    <h4>{{ booking.hike.hike }}</h4>
+                                </a>
+                                <p >
+                                    Start time : {{ booking.hike.starts }}<br>
+                                    Meeting point : {{ booking.hike.meeting_point }}
+                                </p>
                             </div>
-                            <div class="row">
-                                Start time : {{ booking.hike.starts }}
-                            </div>
-                            <div class="row">
-                                Meeting point : {{ booking.hike.meeting_point }}
+                            <div class="row booking-icons">
+                                <div class="col-auto">
+                                    {% if booking.places_reserved == 1 %}
+                                    <p class="card-text text-muted h6"><i class="fas fa-user"></i>
+                                    {{ booking.places_reserved }}</p>
+                                    {% else %}
+                                    <p class="card-text text-muted h6"><i class="fas fa-user"></i>
+                                        {{ booking.places_reserved }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    {% if booking.approved %}
+                                    <p class="card-text text-muted h6"><i class="fas fa-check-circle"></i>
+                                        Confirmed</p>
+                                    {% else %}
+                                    <p class="card-text text-muted h6"><i class="fas fa-question-circle"></i>
+                                        Awaiting Confirmation</p>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                        <form action="{% url 'hike_mybookings' %}" method="POST">
-                            {% csrf_token %}
-                            <div class="col">
-                                <button type="submit" value="{{booking.id}}" name="cancel_booking_id" onclick="return confirm('Are you sure?')">Cancel Booking</button>
-                            </div>
-                        </form>
-                        <div class="row">
-                            <div class="col-md-3">
-                                {% if booking.places_reserved == 1 %}
-                                    <i class="fas fa-user"> {{ booking.places_reserved }}</i>
-                                {% else %}
-                                    <i class="fas fa-user-friends"> {{ booking.places_reserved }}</i>
-                                {% endif %}
-                            </div>
-                            <div class="col">
-                                {% if booking.approved %}
-                                <i class="fas fa-check-circle"> Confirmed</i>
-                                {% else %}
-                                <i class="fas fa-question-circle"> Awaiting Confirmation</i>
-                                {% endif %}
-                            </div>
+                        <div class="col-auto">
+                            <form action="{% url 'hike_mybookings' %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-block btn-form mb-1" value="{{booking.id}}" name="cancel_booking_id" onclick="return confirm('Are you sure?')">Cancel Booking</button>
+                            </form>
                         </div>
                     </div>
                 </div>
+                {% empty %} 
+                You currently have no booking requests
                 {% endfor %}
             </div>
         </div>

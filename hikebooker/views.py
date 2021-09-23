@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from .models import Hike, Booking, Schedule
 from .forms import CommentForm
 from datetime import date
@@ -59,18 +60,10 @@ class HikeDetail(View):
         else:
             comment_form = CommentForm()
 
-        return render(
-            request,
-            "hike_detail.html",
-            {
-                "hike": hike,
-                "comments": comments,
-                "scheduled_hikes": scheduled_hikes,
-                "commented": True,
-                "liked": liked,
-                "comment_form": CommentForm()
-            }
-        )
+        # User HttpResponseRedirect here instead of render to ensure comment
+        # is not re-submitted on page re-load
+        messages.success(request, 'Thank you for your comment !')
+        return HttpResponseRedirect(reverse('hike_detail', args=[slug]))
 
 
 class HikeLike(View):
@@ -105,19 +98,10 @@ class HikeMyBookings(View):
         booking = get_object_or_404(Booking, id=id)
         booking.delete()
 
-        bookings = Booking.objects.filter(username=self.request.user).filter(
-                    hike__starts__gt=date.today()).order_by('hike__starts')
-
-        return render(
-            request,
-            "hike_mybookings.html",
-            {
-                "bookings": bookings,
-            }
-        )
-
-
-
+        # User HttpResponseRedirect here instead of render to ensure 
+        # delete request is not re-submitted on bookings page re-load
+        messages.success(request, 'Your booking has been cancelled.')
+        return HttpResponseRedirect(reverse('hike_mybookings'))
 
 
 class HikeBook(View):
@@ -131,12 +115,7 @@ class HikeBook(View):
         Booking.objects.create(hike=sched_hike, username=user,
                                places_reserved=places_reserved)
 
-        bookings = Booking.objects.filter(username=self.request.user).filter(
-                    hike__starts__gt=date.today()).order_by('hike__starts')
-        return render(
-            request,
-            "hike_mybookings.html",
-            {
-                "bookings": bookings,
-            }
-        )
+        # User HttpResponseRedirect here instead of render to ensure 
+        # booking is not re-submitted on bookings page re-load
+        messages.success(request, 'Thank you for your booking request !')
+        return HttpResponseRedirect(reverse('hike_mybookings'))
