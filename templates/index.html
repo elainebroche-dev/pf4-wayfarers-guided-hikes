@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in hike.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default_hike_pic.jpg' %}"
+                                <img class="card-img-top" src="https://res.cloudinary.com/cloudebr/image/upload/v1632744141/static/media/images/default_hike_pic_ni7pzb.jpg"
                                     alt="Default hiking image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ hike.featured_image.url }}">

@@ -12,7 +12,7 @@ body {
 }
 
 .jumbotron {
-    background-image: url("../images/jumbotron_background.jpg");
+    background-image: url("https://res.cloudinary.com/cloudebr/image/upload/v1632744142/static/media/images/jumbotron_background_ldwqfi.jpg");
     background-size: cover;
     padding-top: 1%;
     padding-bottom: 25%;
@@ -209,7 +209,7 @@ body {
 }
 
 .full-background {
-    background-image: url("../images/auth_background.jpg"); 
+    background-image: url("https://res.cloudinary.com/cloudebr/image/upload/v1632744148/static/media/images/auth_background_kkxmad.jpg"); 
     background-size: 2000px;
     background-repeat: no-repeat;
     background-position: center;

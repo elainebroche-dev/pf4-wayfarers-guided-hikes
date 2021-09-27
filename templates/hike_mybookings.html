@@ -19,7 +19,7 @@
                             <a href="{% url 'hike_detail' booking.hike.hike.slug %}" class="hike-link">
                                 <div class="col-auto">
                                     {% if "placeholder" in booking.hike.hike.featured_image.url %}
-                                    <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image" class="booking-img">
+                                    <img src="https://res.cloudinary.com/cloudebr/image/upload/v1632744141/static/media/images/default_hike_pic_ni7pzb.jpg" alt="Default hiking image" class="booking-img">
                                     {% else %}
                                     <img src="{{ booking.hike.hike.featured_image.url }}" class="booking-img">
                                     {% endif %}

@@ -11,7 +11,7 @@
             <div class="d-block col-lg-8 masthead-image">
                 <!-- display default hike image if a featured image is not available -->
                 {% if "placeholder" in hike.featured_image.url %}
-                <img src="{% static 'images/default_hike_pic.jpg' %}" alt="Default hiking image">
+                <img src="https://res.cloudinary.com/cloudebr/image/upload/v1632744141/static/media/images/default_hike_pic_ni7pzb.jpg" alt="Default hiking image">
                 {% else %}
                 <img src="{{ hike.featured_image.url }}">
                 {% endif %}
