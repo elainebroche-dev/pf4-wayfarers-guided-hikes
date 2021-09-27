@@ -84,12 +84,15 @@ class HikeMyBookings(View):
     def get(self, request, *args, **kwargs):
         bookings = Booking.objects.filter(username=self.request.user).filter(
                     hike__starts__gt=date.today()).order_by('hike__starts')
+        past_bookings = Booking.objects.filter(username=self.request.user).filter(
+                    hike__starts__lte=date.today()).order_by('hike__starts')
 
         return render(
             request,
             "hike_mybookings.html",
             {
                 "bookings": bookings,
+                "past_bookings": past_bookings,
             }
         )
 
