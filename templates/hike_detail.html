@@ -21,8 +21,8 @@
                 <h1 class="hike-detail-title">{{ hike.title }} </h1>
                 <!-- Hike difficulty rating and hike details created date  -->
                 <p class="hike-subitem">
-                    Distance : {{ hike.distance_km.normalize }} kms<br>
-                    Estimate Duration : {{ hike.est_duration_hrs.normalize }} hours
+                    Distance: {{ hike.distance_km.normalize }} kms<br>
+                    Estimated Duration: {{ hike.est_duration_hrs.normalize }} hours
                 </p>
                 {% if hike.difficulty == 0 %}
                 <div class="masthead-flash image-bkgd-easy">
@@ -73,8 +73,8 @@
                 <!-- The hike content/description goes inside the card-text.  -->
                 <!--  this content can only be added by admin so can be codsidered 'safe' -->
                 <p class="card-text "> {{ hike.content | safe }}
-                    Details Created : {{hike.created_on }} <br>
-                    Last Updated : {{hike.updated_on }} <br>
+                    Details Created: {{hike.created_on }} <br>
+                    Last Updated: {{hike.updated_on }} <br>
                 </p>
 
                 <div class="row">

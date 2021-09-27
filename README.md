@@ -52,6 +52,8 @@ project is banffnp and app is hikebooker
 
 -   ### Wireframes
 
+need a note here to say that wireframes have not been done for the django pages that manip data model (look up correct term here)
+
     <details>
     <summary>Desktop Wireframes</summary>
 
