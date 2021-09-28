@@ -78,6 +78,26 @@ need a note here to say that wireframes have not been done for the django pages 
     ![ER Diagrams](to be written)
     </details>
 
+    ******************  the following text needs to be tidied up and improved as a description of the er diagrams
+
+  the diagrams show the logical data model.  The many-to-many relationship between hikes and likes is represented as normalized tables to clarify 
+the relationship.  In the models.py file the likes data item is declared as part of the Hike class, with django handling how this relationship is represented in the physical database tables
+in the background.
+
+The users table in the diagram is also a logical representation of the data captured during user registration and how it relates to the application
+data model.  The users table itself is not declared in the models.py file, but is handled by the auth??? modules?? in django and this logical view does not
+reflect all columns and constraints etc. used by the physical data tables in the database.
+
+The data model tables are split into two diagrams so that the relationships between the tables can be easily read.
+
+A booking is a many-to-many relationship between schedule and users but because it also has it's own data - places_reserved, it is declared as
+it's own separate class in models.py
+
+Because there could be multiple guided hikes on the same hike trail in a single day, the schedule table needs a composite primary key of the
+hike_id and 'starts' column.  This is handled using a constraint in models.py.
+
+*************************** end of er description notes
+
 ## Planning
 
 ### to be written - include information and links here re agile process used
