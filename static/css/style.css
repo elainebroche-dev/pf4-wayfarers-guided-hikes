@@ -112,12 +112,11 @@ body {
 }
 
 .hike-detail-title {
-    margin-top: 20%;
+    margin-top: 5rem;
     margin-left: 5%;
 }
 
 .hike-subitem {
-    padding-top : 2rem;
     margin-left: 5%;
 }
 
@@ -283,6 +282,8 @@ body {
 
 .booking-summary {
     min-width: 260px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .booking-icons {
