@@ -31,7 +31,7 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
     list_display = ('hike', 'starts', 'meeting_point')
-    list_filter = ('hike', 'starts',) 
+    list_filter = ('hike', 'starts',)
     search_fields = ('hike__title', 'meeting_point')
 
 

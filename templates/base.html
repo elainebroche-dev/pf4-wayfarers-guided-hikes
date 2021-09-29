@@ -4,12 +4,11 @@
 <html class="h-100">
 
 <head>
-    
+
     <title>Wayfarers Hike Booking</title>
-    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
-    
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,9 +21,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
 </head>
 
+<!-- use block body_class to control when full background image will be displayed -->
 <body class="d-flex flex-column h-100 main-bg {% block body_class %}full-background{% endblock %}">
 
     <!-- Navigation -->
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
-                            <i class="fas fa-shoe-prints fa-rotate-270"></i><span class="brand"> wayfarers</span>
+                <i class="fas fa-shoe-prints fa-rotate-270"></i><span class="brand"> wayfarers</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,71 +40,81 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- add the active class to the correct link depending on request.path value -->
                     <li class="nav-item">
-                        <a  {% if '/' == request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a {% if '/' == request.path %}class="nav-link active" {% else %}class="nav-link" {% endif %}
+                            aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a {% if 'book' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'hike_mybookings' %}">My Bookings</a>
+                        <a {% if 'book' in request.path %}class="nav-link active" {% else %}class="nav-link" {% endif %}
+                            href="{% url 'hike_mybookings' %}">My Bookings</a>
                     </li>
                     <li class="nav-item">
-                        <a {% if 'logout' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'account_logout' %}">Sign out</a>
+                        <a {% if 'logout' in request.path %}class="nav-link active" {% else %}class="nav-link"
+                            {% endif %} href="{% url 'account_logout' %}">Sign out</a>
                     </li>
                     {% if user.username == "admin" %}
                     <li class="nav-item">
-                        <a {% if 'admin' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'admin:index' %}">Admin</a>
+                        <a {% if 'admin' in request.path %}class="nav-link active" {% else %}class="nav-link"
+                            {% endif %} href="{% url 'admin:index' %}">Admin</a>
                     </li>
                     {% endif %}
                     {% else %}
-                    <li  class="nav-item">
-                        <a {% if 'signup' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'account_signup' %}">Register</a>
+                    <li class="nav-item">
+                        <a {% if 'signup' in request.path %}class="nav-link active" {% else %}class="nav-link"
+                            {% endif %} href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a {% if 'login' in request.path %}class="nav-link active"{% else %}class="nav-link"{% endif %} href="{% url 'account_login' %}">Sign in</a>
+                        <a {% if 'login' in request.path %}class="nav-link active" {% else %}class="nav-link"
+                            {% endif %} href="{% url 'account_login' %}">Sign in</a>
                     </li>
                     {% endif %}
                 </ul>
                 {% if user.is_authenticated %}
                 <span class="navbar-text">
-                    <i class="far fa-user"></i>   {{ user.username }}
+                    <i class="far fa-user"></i> {{ user.username }}
                 </span>
                 {% endif %}
             </div>
         </div>
     </nav>
-
+    {{ request.path }}
     <main class="flex-shrink-0 ">
+        <!-- display any alerts that have been raised -->
         {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{message}}
-            </div>
-            {% endfor %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
         {% endif %}
+
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content goes here -->
         {% endblock content %}
     </main>
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 footer-bg">
-        
-        <p class="m-0 text-center social-networks">Keep in touch : 
-                <a href="https://instagram.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Instagram page (opens in a new tab)"><i
-                        class="fab fa-instagram ms-3"></i></a>
-         
-                <a href="https://twitter.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Twitter page (opens in a new tab)"><i class="fab fa-twitter ms-3"></i></a>
-           
-                <a href="https://facebook.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook ms-3"></i></a></p>
-            <p class="m-0 text-center">this website is for educational purposes only</p>
+
+        <p class="m-0 text-center social-networks">Keep in touch :
+            <a href="https://instagram.com" target="_blank" rel="noopener"
+                aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram ms-3"></i></a>
+
+            <a href="https://twitter.com" target="_blank" rel="noopener"
+                aria-label="Visit our Twitter page (opens in a new tab)"><i class="fab fa-twitter ms-3"></i></a>
+
+            <a href="https://facebook.com" target="_blank" rel="noopener"
+                aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook ms-3"></i></a></p>
+        <p class="m-0 text-center">this website is for educational purposes only</p>
     </footer>
+
+    <!-- fade out alerts after 5 seconds -->
     <script type="text/javascript">
         $(document).ready(function () {
-            window.setTimeout(function() {
-                $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+            window.setTimeout(function () {
+                $(".alert").fadeTo(1000, 0).slideUp(1000, function () {
                     $(this).remove();
                 });
             }, 5000);

@@ -1,6 +1,6 @@
 body {
     background-color: #F9FAFC;
-    max-width: 2000px;
+    max-width: 125rem;
     margin: 0 auto;
 }
 
@@ -44,7 +44,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     right: 2%;
-    border-radius: 25px;
+    border-radius: 1.5rem;
 }
 
 .image-bkgd-easy {
@@ -61,13 +61,13 @@ body {
 
 .difficulty {
     color: white;
-    margin: 4px;
+    margin: 0.25rem;
     text-transform: uppercase;
     text-align: center;
 }
 
 .masthead {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     overflow: hidden;
     position: relative;
     display: inline-block;
@@ -94,7 +94,7 @@ body {
     top: 5%;
     min-width: 30%;
     left: 2%;
-    border-radius: 25px;
+    border-radius: 1.56rem;
 }
 
 .hike-title {
@@ -118,17 +118,6 @@ body {
 
 .hike-subitem {
     margin-left: 5%;
-}
-
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
 }
 
 .btn-like {
@@ -162,19 +151,19 @@ body {
 .social-networks i {
     font-size: 200%;
     margin: 0.5rem;
-    color : black;
+    color: black;
     text-decoration: none;
     vertical-align: middle;
- }
+}
 
- .navbar {
-     padding: 1rem;
- }
+.navbar {
+    padding: 1rem;
+}
 
- .auth-card {
+.auth-card {
     border: 0;
-    border-radius: 27.5px;
-    box-shadow: 0 10px 30px 0 rgb(172 168 168 / 43%);
+    border-radius: 1.71rem;
+    box-shadow: 0 0.625rem 1.875rem 0 rgb(172 168 168 / 43%);
     overflow: hidden;
     padding: 2rem;
 }
@@ -188,18 +177,18 @@ body {
 }
 
 .auth-card form {
-    max-width: 300px;
+    max-width: 18.75rem;
 }
 
 .btn-form {
-    padding: 13px 20px 12px;
+    padding: 0.8125rem 1.25rem 0.75rem;
     background-color: #000;
-    border-radius: 4px;
-    font-size: 17px;
+    border-radius: 0.25rem;
+    font-size: 1rem;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 1.25rem;
     color: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
     width: 100%;
 }
 
@@ -208,8 +197,8 @@ body {
 }
 
 .full-background {
-    background-image: url("https://res.cloudinary.com/cloudebr/image/upload/v1632744148/static/media/images/auth_background_kkxmad.jpg"); 
-    background-size: 2000px;
+    background-image: url("https://res.cloudinary.com/cloudebr/image/upload/v1632744148/static/media/images/auth_background_kkxmad.jpg");
+    background-size: 125rem;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -218,22 +207,24 @@ body {
     font-weight: 500;
 }
 
+.nav-link:hover
+{
+    color: #191b1d;
+    font-weight: bold;
+}
+
 .comment-form {
     margin-top: 1.3em;
 }
 
 .comments {
-    padding: 10px;
-}
-
-.rem-bg {
-    background-image:none
+    padding: 0.625rem;
 }
 
 .booking-panel {
     border: 0;
-    border-radius: 27.5px;
-    box-shadow: 0 2px 6px 0 rgb(172 168 168 / 43%);
+    border-radius: 1.72rem;
+    box-shadow: 0 0.125rem 0.375rem 0 rgb(172 168 168 / 43%);
     overflow: hidden;
     padding: 2rem;
     margin: 1rem;
@@ -248,44 +239,43 @@ body {
     width: auto;
 }
 
+.booking-img {
+    border-radius: 1.25rem;
+    padding: 0.3125rem;
+    max-width: 11.25rem;
+}
 
-/* For small screen sizes keep likes and comment nums on a single row */
-@media screen and (max-width: 600px) {
-    .xs-col-width {
-       width: auto;
-    }
- }
+.booking-img:hover {
+    box-shadow: 0 0 0.125rem 0.0625rem rgba(0, 140, 186, 0.5);
+}
 
- .booking-img {
-    border-radius: 20px;
-    padding: 5px;
-    max-width: 180px;
-  }
-  
-  .booking-img:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-  }
-
-  .booking-card {
+.booking-card {
     border: 0;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px 0 rgb(172 168 168 / 43%);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.625rem 1.875rem 0 rgb(172 168 168 / 43%);
     overflow: hidden;
     padding: .5rem;
     margin: 0 auto 2rem;
-    max-width: 900px;
+    max-width: 56.25rem;
 }
 
 .booking-title {
-    padding: 12px;
+    padding: 0.75rem;
 }
 
 .booking-summary {
-    min-width: 260px;
+    min-width: 16.25rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
 
 .booking-icons {
     margin-bottom: 1rem;
+}
+
+/* For small screen sizes keep likes and comment nums on a single row */
+@media screen and (max-width: 600px) {
+    .xs-col-width {
+        width: auto;
+    }
 }

@@ -4,7 +4,6 @@
 
 {% block content %}
 
-
 <div class="container-fluid">
     <!-- jumbotron for an introduction message -->
     <div class="jumbotron jumbotron-img">
@@ -27,7 +26,8 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in hike.featured_image.url %}
-                                <img class="card-img-top" src="https://res.cloudinary.com/cloudebr/image/upload/v1632744141/static/media/images/default_hike_pic_ni7pzb.jpg"
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/cloudebr/image/upload/v1632744141/static/media/images/default_hike_pic_ni7pzb.jpg"
                                     alt="Default hiking image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ hike.featured_image.url }}">
@@ -50,7 +50,7 @@
                                 <h2 class="card-title hike-title">{{ hike.title }}</h2>
                                 <p class="card-text">
                                     Distance: {{ hike.distance_km.normalize }} kms<br>
-                                    Estimated Duration: {{ hike.est_duration_hrs.normalize }} hours
+                                    Estimated Duration: {{ hike.est_duration_hrs.normalize }} hrs
                                 </p>
                             </a>
                             <hr />
