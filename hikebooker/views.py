@@ -43,13 +43,6 @@ class HikeDetail(View):
     def post(self, request, slug, *args, **kwargs):
         queryset = Hike.objects.filter(status=1)
         hike = get_object_or_404(queryset, slug=slug)
-        comments = hike.comments.filter(approved=True).order_by('-created_on')
-        scheduled_hikes = Schedule.objects.filter(hike=hike).filter(
-                                starts__gt=date.today()).order_by('starts')
-        liked = False
-        if hike.likes.filter(id=self.request.user.id).exists():
-            liked = True
-
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -57,12 +50,10 @@ class HikeDetail(View):
             comment = comment_form.save(commit=False)
             comment.hike = hike
             comment.save()
-        else:
-            comment_form = CommentForm()
+            messages.success(request, 'Thank you for your comment !')
 
         # User HttpResponseRedirect here instead of render to ensure comment
         # is not re-submitted on page re-load
-        messages.success(request, 'Thank you for your comment !')
         return HttpResponseRedirect(reverse('hike_detail', args=[slug]))
 
 
@@ -84,7 +75,8 @@ class HikeMyBookings(View):
     def get(self, request, *args, **kwargs):
         bookings = Booking.objects.filter(username=self.request.user).filter(
                     hike__starts__gt=date.today()).order_by('hike__starts')
-        past_bookings = Booking.objects.filter(username=self.request.user).filter(
+        past_bookings = Booking.objects.filter(
+                    username=self.request.user).filter(
                     hike__starts__lte=date.today()).order_by('hike__starts')
 
         return render(
@@ -101,7 +93,7 @@ class HikeMyBookings(View):
         booking = get_object_or_404(Booking, id=id)
         booking.delete()
 
-        # User HttpResponseRedirect here instead of render to ensure 
+        # Used HttpResponseRedirect here instead of render to ensure
         # delete request is not re-submitted on bookings page re-load
         messages.success(request, 'Your booking has been cancelled.')
         return HttpResponseRedirect(reverse('hike_mybookings'))
@@ -118,7 +110,7 @@ class HikeBook(View):
         Booking.objects.create(hike=sched_hike, username=user,
                                places_reserved=places_reserved)
 
-        # User HttpResponseRedirect here instead of render to ensure 
+        # Used HttpResponseRedirect here instead of render to ensure
         # booking is not re-submitted on bookings page re-load
         messages.success(request, 'Thank you for your booking request !')
         return HttpResponseRedirect(reverse('hike_mybookings'))
