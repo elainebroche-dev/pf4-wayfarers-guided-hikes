@@ -4,7 +4,6 @@ import pytz
 import datetime
 from unittest import mock
 from django.contrib.auth.models import User
-from django.test import Client
 
 
 class TestModels(TestCase):
@@ -15,8 +14,6 @@ class TestModels(TestCase):
         self.user = User.objects.create(username='testuser')
         self.user.set_password('12345')
         self.user.save()
-        c = Client()
-        c.login(username='testuser', password='12345')
 
         self.hike = Hike.objects.create(
                 title='test hike A',
@@ -42,7 +39,7 @@ class TestModels(TestCase):
         )
 
     def test_hike_str(self):
-        self.assertEqual(str(self.hike),'test hike A')
+        self.assertEqual(str(self.hike), 'test hike A')
 
     def test_hike_defaults(self):
         self.assertEqual(self.hike.status, 0)
@@ -64,7 +61,8 @@ class TestModels(TestCase):
             self.assertEqual(hike.updated_on, mocked)
 
     def test_comment_str(self):
-        self.assertEqual(str(self.comment), f'Comment this is a comment for hike A by {self.user.username}')
+        self.assertEqual(str(self.comment),
+                         f'Comment this is a comment for hike A by {self.user.username}')
 
     def test_comment_approved_default(self):
         self.assertFalse(self.comment.approved)

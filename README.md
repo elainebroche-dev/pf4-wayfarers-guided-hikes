@@ -276,6 +276,8 @@ https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-back
 - code to test automatically generated dates : https://stackoverflow.com/questions/49874923/how-to-test-auto-now-add-in-django
 - code on how to use setUpTestData based on info from here : https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup
 - code on how to create a user reference and log them in : https://stackoverflow.com/questions/2619102/djangos-self-client-login-does-not-work-in-unit-tests
+- code to help with request factory : https://gist.github.com/dkarchmer/99a35f00503458a4fa3088f5c8215381
+- code to help with naive date : https://stackoverflow.com/questions/4530069/how-do-i-get-a-value-of-datetime-today-in-python-that-is-timezone-aware
 
 ### Configuration and Deployment
 - The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
