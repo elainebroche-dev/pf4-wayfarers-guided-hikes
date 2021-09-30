@@ -130,6 +130,7 @@ hike_id and 'starts' column.  This is handled using a constraint in models.py.
 -   [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) used for account registration and authentication
 -   [Django crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to simplify form rendering
 -   [jquery library](https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js) used to fade out alert messages
+-   [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) used to check how much of the python code has been covered by automated tests
 - check this list against the files referenced in base.html
 bootstrap to be added here
 
@@ -272,6 +273,9 @@ https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-back
 - code on how to make 12345 list : https://stackoverflow.com/questions/4395230/building-a-list-in-django-templates
 - code on how to display messages to user : https://stackoverflow.com/questions/28240746/django-how-to-implement-alertpopup-message-after-complete-method-in-view
 - more code on fade : https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close
+- code to test automatically generated dates : https://stackoverflow.com/questions/49874923/how-to-test-auto-now-add-in-django
+- code on how to use setUpTestData based on info from here : https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup
+- code on how to create a user reference and log them in : https://stackoverflow.com/questions/2619102/djangos-self-client-login-does-not-work-in-unit-tests
 
 ### Configuration and Deployment
 - The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)

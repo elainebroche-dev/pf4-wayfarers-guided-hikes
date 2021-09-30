@@ -72,4 +72,4 @@ class Booking(models.Model):
     approved = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'Hike {self.hike} is booked by {self.username}'
+        return f'{self.hike} is booked by {self.username}'
