@@ -1,0 +1,25 @@
+{
+  "name": "pf4-wayfarers-guided-hikes",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">BANFF National Park Hike Booker</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/issues"
+  },
+  "homepage": "https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes#readme",
+  "devDependencies": {
+    "jest": "^27.2.4"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

@@ -19,6 +19,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -108,17 +109,6 @@
                 aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook ms-3"></i></a></p>
         <p class="m-0 text-center">this website is for educational purposes only</p>
     </footer>
-
-    <!-- fade out alerts after 5 seconds -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            window.setTimeout(function () {
-                $(".alert").fadeTo(1000, 0).slideUp(1000, function () {
-                    $(this).remove();
-                });
-            }, 5000);
-        });
-    </script>
 </body>
 
 </html>

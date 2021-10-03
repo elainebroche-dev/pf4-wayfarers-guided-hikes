@@ -130,7 +130,10 @@ hike_id and 'starts' column.  This is handled using a constraint in models.py.
 -   [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) used for account registration and authentication
 -   [Django crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to simplify form rendering
 -   [jquery library](https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js) used to fade out alert messages
--   [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) used to check how much of the python code has been covered by automated tests
+-   [Django tessting tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) used for python mvt testing
+-   [Jest](https://jestjs.io/) - used to test jquery in script.js
+-   [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) used to check how much of the python code has been covered by 
+automated tests
 - check this list against the files referenced in base.html
 bootstrap to be added here
 
@@ -158,6 +161,8 @@ bootstrap to be added here
 ### Automated Testing
 
    - to be written 
+   - add a reference here to jest
+   - add ref to django testing tools (used for python testing) https://docs.djangoproject.com/en/3.2/topics/testing/tools/
       ![to be written](to be written)
 
 ### Browser Compatibility
@@ -278,6 +283,9 @@ https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-back
 - code on how to create a user reference and log them in : https://stackoverflow.com/questions/2619102/djangos-self-client-login-does-not-work-in-unit-tests
 - code to help with request factory : https://gist.github.com/dkarchmer/99a35f00503458a4fa3088f5c8215381
 - code to help with naive date : https://stackoverflow.com/questions/4530069/how-do-i-get-a-value-of-datetime-today-in-python-that-is-timezone-aware
+- code to help with testing admin.py customizations : https://newbedev.com/testing-custom-admin-actions-in-django
+- code on how to delay jest test : https://stackoverflow.com/questions/46077176/jest-settimeout-not-pausing-test
+- code on how to stop jquery animations for jest testing : https://stackoverflow.com/questions/61295452/jest-test-jquery-fadein-fadeout-on-specific-elements
 
 ### Configuration and Deployment
 - The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
