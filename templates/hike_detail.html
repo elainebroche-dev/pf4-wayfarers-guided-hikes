@@ -51,7 +51,7 @@
                                 <option value={{ hike.id }}>{{ hike.starts }}</option>
                                 {% endfor %}
                             </select><br>
-                            <label class="form-label" for="typeNumber">Number of hikers</label>
+                            <label class="form-label" for="HikersFormControlSelect">Number of hikers</label>
                             <select class="form-select hiker-select" id="HikersFormControlSelect"
                                 name="places_reserved">
                                 {% for x in "12345"|make_list %}
@@ -76,32 +76,30 @@
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
                 <!-- display the hike detailed information  -->
-                <!--  this content can only be added by admin so can be codsidered 'safe' -->
-                <p class="card-text "> {{ hike.content | safe }}
+                <!--  this content can only be added by admin so can be considered 'safe' -->
+                <div class="card-text "> {{ hike.content | safe }}
                     Details Created: {{hike.created_on }} <br>
                     Last Updated: {{hike.updated_on }} <br>
-                </p>
+                </div>
                 <div class="row">
                     <div class="col-sm-2 col-lg-1 xs-col-width">
                         <!-- show the number of likes and allow authenticated used to use like button -->
-                        <strong>
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'hike_like' hike.slug %}" method="POST">
-                                {% csrf_token %}
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'hike_like' hike.slug %}" method="POST">
+                            {% csrf_token %}
 
-                                {% if liked %}
-                                <button type="submit" name="hike_id" value="{{hike.slug}}" class="btn-like"><i
-                                        class="fas fa-heart"></i></button>
-                                {% else %}
-                                <button type="submit" name="hike_id" value="{{hike.slug}}" class="btn-like"><i
-                                        class="far fa-heart"></i></button>
-                                {% endif %}
-                            </form>
+                            {% if liked %}
+                            <strong><button type="submit" name="hike_id" value="{{hike.slug}}" class="btn-like"><i
+                                    class="fas fa-heart"></i></button></strong>
                             {% else %}
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            <strong><button type="submit" name="hike_id" value="{{hike.slug}}" class="btn-like"><i
+                                    class="far fa-heart"></i></button></strong>
                             {% endif %}
-                            <span class="text-secondary"> {{ hike.number_of_likes }} </span>
-                        </strong>
+                        </form>
+                        {% else %}
+                            <strong><span class="text-secondary"><i class="far fa-heart"></i></span></strong>
+                        {% endif %}
+                            <strong><span class="text-secondary"> {{ hike.number_of_likes }} </span></strong>
                     </div>
                     <div class="col-sm-2 col-lg-1 xs-col-width">
                         <!-- show the number of comments -->
