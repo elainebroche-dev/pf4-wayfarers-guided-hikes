@@ -1,8 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-global.window = window
-global.$ = require('jquery')
+/* jshint esversion: 8 */
+/* globals $, global, require, jest, beforeEach, afterEach : false */
+/* globals describe, test, expect  : false */
+
+global.window = window;
+global.$ = require('jquery');
 
 const fadeAlerts = require("../script");
 
@@ -19,13 +23,11 @@ afterEach(() => {
 
 describe("DOM alert class test", () => {
     test('check alert element is removed', async () => {
-        before = document.getElementsByClassName("alert").length;
+        let before = document.getElementsByClassName("alert").length;
         expect(before == 1).toBeTruthy();
-        fadeAlerts();  // test that the jquery code removes the alert
+        fadeAlerts();  // test jquery code removes the element with alert class
         await new Promise((r) => setTimeout(r, 7000));
-        after = document.getElementsByClassName("alert").length;
+        let after = document.getElementsByClassName("alert").length;
         expect(after == 0).toBeTruthy();
       });
  });
-
- 

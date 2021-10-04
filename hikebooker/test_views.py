@@ -8,6 +8,7 @@ import datetime
 
 class TestViews(TestCase):
 
+    # set up test hike, comment, schedule and booking
     @classmethod
     def setUpTestData(self):
         self.user = User.objects.create(username='testuser')
@@ -38,18 +39,22 @@ class TestViews(TestCase):
             places_reserved=1
         )
 
+    # retrieve home page and check correct templates are used
     def test_get_home_page(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'base.html')
         self.assertTemplateUsed(response, 'index.html')
 
+    # retrieve hike detail page and check correct templates are used
     def test_get_hike_detail_page(self):
-        response = self.client.get(reverse('hike_detail', args=[self.hike.slug]))
+        response = self.client.get(
+                    reverse('hike_detail', args=[self.hike.slug]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'base.html')
         self.assertTemplateUsed(response, 'hike_detail.html')
 
+    # retrieve bookings page and check correct templates are used
     def test_get_mybookings_page(self):
         self.client.login(username='testuser', password='12345')
         response = self.client.get(reverse('hike_mybookings'))
@@ -57,26 +62,39 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'base.html')
         self.assertTemplateUsed(response, 'hike_mybookings.html')
 
+    # verify like can be toggled on and off
     def test_can_toggle_like_hike(self):
         self.client.login(username='testuser', password='12345')
         numlikes = self.hike.likes.count()
-        response = self.client.post(reverse('hike_like', args=[self.hike.slug]))
-        self.assertRedirects(response, reverse('hike_detail', args=[self.hike.slug]))
+        response = self.client.post(
+                    reverse('hike_like', args=[self.hike.slug]))
+        self.assertRedirects(
+            response, reverse('hike_detail', args=[self.hike.slug]))
         self.assertEqual(self.hike.likes.count(), numlikes+1)
-        response = self.client.post(reverse('hike_like', args=[self.hike.slug]))
-        self.assertRedirects(response, reverse('hike_detail', args=[self.hike.slug]))
+        response = self.client.post(
+                    reverse('hike_like', args=[self.hike.slug]))
+        self.assertRedirects(
+            response, reverse('hike_detail', args=[self.hike.slug]))
         self.assertEqual(self.hike.likes.count(), numlikes)
 
+    # verify that user can comment on hike and page is refreshed
     def test_can_comment_on_hike(self):
         self.client.login(username='testuser', password='12345')
-        response = self.client.post(reverse('hike_detail', args=[self.hike.slug]), data={'message': 'new comment'})
-        self.assertRedirects(response, reverse('hike_detail', args=[self.hike.slug]))
+        response = self.client.post(
+                    reverse('hike_detail', args=[self.hike.slug]),
+                    data={'message': 'new comment'})
+        self.assertRedirects(
+            response, reverse('hike_detail', args=[self.hike.slug]))
 
+    # verify that user can book a hike and is brought to bookings list page
     def test_can_book_a_hike(self):
         self.client.login(username='testuser', password='12345')
-        response = self.client.post(reverse('hike_book'), data={'places_reserved': '1', 'sched_id': '1'})
+        response = self.client.post(
+                    reverse('hike_book'),
+                    data={'places_reserved': '1', 'sched_id': '1'})
         self.assertRedirects(response, reverse('hike_mybookings'))
 
+    # verify user can cancel booking and that page is refreshed
     def test_can_cancel_booking(self):
         self.client.login(username='testuser', password='12345')
         booking = Booking.objects.create(
@@ -86,7 +104,9 @@ class TestViews(TestCase):
         )
         matching_bookings = Booking.objects.filter(id=booking.id)
         self.assertEqual(len(matching_bookings), 1)
-        response = self.client.post(reverse('hike_mybookings'), data={'cancel_booking_id': f'{booking.id}'})
+        response = self.client.post(
+                    reverse('hike_mybookings'),
+                    data={'cancel_booking_id': f'{booking.id}'})
         self.assertRedirects(response, reverse('hike_mybookings'))
         matching_bookings = Booking.objects.filter(id=booking.id)
         self.assertEqual(len(matching_bookings), 0)

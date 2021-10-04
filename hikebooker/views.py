@@ -23,7 +23,8 @@ class HikeDetail(View):
         hike = get_object_or_404(queryset, slug=slug)
         comments = hike.comments.filter(approved=True).order_by('-created_on')
         scheduled_hikes = Schedule.objects.filter(hike=hike).filter(
-                            starts__gt=datetime.datetime.now(pytz.utc)).order_by('starts')
+                            starts__gt=datetime.datetime.now(
+                                        pytz.utc)).order_by('starts')
         liked = False
         if hike.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -75,10 +76,12 @@ class HikeMyBookings(View):
 
     def get(self, request, *args, **kwargs):
         bookings = Booking.objects.filter(username=self.request.user).filter(
-                    hike__starts__gt=datetime.datetime.now(pytz.utc)).order_by('hike__starts')
+                    hike__starts__gt=datetime.datetime.now(
+                                        pytz.utc)).order_by('hike__starts')
         past_bookings = Booking.objects.filter(
                     username=self.request.user).filter(
-                    hike__starts__lte=datetime.datetime.now(pytz.utc)).order_by('hike__starts')
+                    hike__starts__lte=datetime.datetime.now(
+                                        pytz.utc)).order_by('hike__starts')
 
         return render(
             request,

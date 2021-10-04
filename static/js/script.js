@@ -1,6 +1,8 @@
-// fade out alerts after 5 seconds
+/* jshint esversion: 8 */
+/* globals $, module : false */
 
-document.addEventListener("DOMContentLoaded", fadeAlerts)
+// fade out alerts after 5 seconds
+document.addEventListener("DOMContentLoaded", fadeAlerts);
     
 function fadeAlerts() {
     window.setTimeout(function () {

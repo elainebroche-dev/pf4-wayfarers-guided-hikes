@@ -7,7 +7,8 @@ import datetime
 
 
 class TestAdmin(TestCase):
-    
+
+    # set up test hike, comment, schedule and booking
     @classmethod
     def setUpTestData(self):
 
@@ -38,69 +39,79 @@ class TestAdmin(TestCase):
             places_reserved=1
         )
 
-
+    # login as a superuser, use the approve_comment action to approve the
+    # comment created during setup, check the response code returned
+    # and check that comment is now approved
     def test_approve_comments(self):
-        user = User.objects.create_superuser(
-            username='superstar', email='test@example.com', password='password',
+
+        User.objects.create_superuser(
+            username='superstar', email='tst@example.com', password='password',
         )
         self.client.login(username='superstar', password='password')
 
         # count how many comments are currently approved
         approved = Comment.objects.filter(approved=True).count()
         self.assertFalse(self.comment.approved)
-        
+
         data = {
             'action': 'approve_comments',
             '_selected_action': [self.comment.id, ]}
         change_url = reverse('admin:hikebooker_comment_changelist')
         response = self.client.post(change_url, data, follow=True)
-        
+
         self.assertEqual(response.status_code, 200)
 
         # check number of approved comments has increased by one
-        self.assertEqual(Comment.objects.filter(approved=True).count(), approved+1)
+        self.assertEqual(
+            Comment.objects.filter(approved=True).count(), approved+1)
 
-
+    # login as a superuser, use the approve_booking action to approve the
+    # booking created during setup, check the response code returned
+    # and check that booking is now approved
     def test_approve_bookings(self):
-        user = User.objects.create_superuser(
-            username='superstar', email='test@example.com', password='password',
+
+        User.objects.create_superuser(
+            username='superstar', email='tst@example.com', password='password',
         )
         self.client.login(username='superstar', password='password')
 
         # count how many bookings are currently approved
         approved = Booking.objects.filter(approved=True).count()
         self.assertFalse(self.comment.approved)
-        
+
         data = {
             'action': 'approve_bookings',
             '_selected_action': [self.booking.id, ]}
         change_url = reverse('admin:hikebooker_booking_changelist')
         response = self.client.post(change_url, data, follow=True)
-        
-        self.assertEqual(response.status_code, 200)
-        
-        # check number of approved bookings has increased by one
-        self.assertEqual(Booking.objects.filter(approved=True).count(), approved+1)
 
-    
+        self.assertEqual(response.status_code, 200)
+
+        # check number of approved bookings has increased by one
+        self.assertEqual(
+            Booking.objects.filter(approved=True).count(), approved+1)
+
+    # login as a superuser, use the publish_hikes action to update status of
+    # hike created during setup, check the response code returned and
+    # check that hike is now status=1 (published)
+
     def test_publish_hikes(self):
-        user = User.objects.create_superuser(
-            username='superstar', email='test@example.com', password='password',
+        User.objects.create_superuser(
+            username='superstar', email='tst@example.com', password='password',
         )
         self.client.login(username='superstar', password='password')
 
         # count how many hikes are published
         published = Hike.objects.filter(status=1).count()
         self.assertEqual(self.hike.status, 0)
-        
+
         data = {
             'action': 'publish_hikes',
             '_selected_action': [self.hike.id, ]}
         change_url = reverse('admin:hikebooker_hike_changelist')
         response = self.client.post(change_url, data, follow=True)
-        
+
         self.assertEqual(response.status_code, 200)
-        
+
         # check number of published hikes has increased by one
         self.assertEqual(Hike.objects.filter(status=1).count(), published+1)
-        
