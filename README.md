@@ -155,15 +155,27 @@ bootstrap to be added here
 
 - [Javascript Validator](https://jshint.com/)
 
-    - to be written 
-      ![to be written](to be written)
+    - result for script.js 
+      ![Script JS](documentation/testing/validation/jquery-code-validation.png)
+
+    - result for script.test.js 
+      ![Script Test JS](documentation/testing/validation/jquery-test-validation.png)
 
 ### Automated Testing
 
-   - to be written 
-   - add a reference here to jest
-   - add ref to django testing tools (used for python testing) https://docs.djangoproject.com/en/3.2/topics/testing/tools/
-      ![to be written](to be written)
+  - [Jest](https://jestjs.io/) was used to test the application javascript and jquery code.  The functionality tested was code to fade out, slide up and remove any raised alert messages after a 5 second delay.  The code is located in [Script JS](static/js/script.js), the test is located in [Test JS](static/js/tests/script.test.js)
+
+  - Jest test results :     
+    ![JS Test Results](documentation/testing/results/jquery-test-results.png)
+
+   - [Django testing tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) were used to test the application python code.  DB tests were run in the development environment against a local SQLite3 database. Tests were written for the following files :
+
+      - [forms.py](hikebooker/forms.py)  test file: [test_forms.py](hikebooker/test_forms.py)
+      - [models.py](hikebooker/models.py)  ters file: [test_models.py](hikebooker/test_models.py)
+      - [views.py](hikebooker/views.py)  test file: [test_views.py](hikebooker/test_views.py)
+      - [admin.py](hikebooker/admin.py)  test file: [test_admin.py](hikebooker/test_admin.py)  (tests were added for the customizations made to the django admin functionality)
+
+  - Django test results and coverage :   ??????????????????????
 
 ### Browser Compatibility
 
