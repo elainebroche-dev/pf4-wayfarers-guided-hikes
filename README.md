@@ -19,20 +19,42 @@ project is banffnp and app is hikebooker
 
 ## User Experience (UX)
 
--   ### User stories :
+### User stories :
 
-* US01 to be written
-* US02 to be written
+* USER STORY US01: Illustrate purpose of application through UI
+  - As a **Site User** I can **view the landing page** so that **I can determine the purpose of the application**
+* USER STORY US02: Navigate site
+  - As a **Site User** I can **navigate using the menu** so that **I can easily access application functionality**
 * US03 to be written   . ... etc
 
 ## Features
 
 ### Existing Features
 
+Main Menu - mention responsive ness, burger
+landing page image and text
+hike summary
+Hike List (Landing) Page - difficulty, pic, link to detail, image - is this too big for a feature ?
+Hike Detail Page
+Register
+Sign in
+Sign out
+Comment
+Book
+Like
+View Bookings
+Cancel a booking
+Link to Admin pages for admin user
+
+
 -   __F01 to be written__
     - to be written - blah de blah
 
       ![to be writen](to be written)
+
+
+- __How these features support the user stories__
+    - Cto be written
 
 ### Features which could be implemented in the future
 
@@ -143,23 +165,145 @@ bootstrap to be added here
 
 - [HTML Validator](https://validator.w3.org/)
 
-    - to be written
-      ![to be written](to be written)
+    - As this project uses Django templates the html has been validated by manually clicking through the application pages, copying the source of the rendered pages and then validating this version of the html using the W3C Validator (link shown above).  HTML  for the Django admin site pages was not edited so has not been validated here.  The Signup, Login and Logout pages from Django allauth were customized and so have been validated, with results below.
+
+    - results for index.html
+      - <details>
+        <summary>Index Page - Summary</summary>
+
+        ![Index Page - Summary](documentation/testing/validation/html-validation-img-rendered-index-page.png)
+      </details>
+
+      - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-index-page.pdf" target="_blank">Index Page - Full HTML Validation Results</a>
+
+    - results for hike_detail.html
+      - <details>
+        <summary>Hike Detail Page - Summary</summary>
+
+        ![Hike Detail Page - Summary](documentation/testing/validation/html-validation-img-rendered-detail-page.png)
+      </details>
+
+      - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-detail-page.pdf" target="_blank">Hike Detail Page - Full HTML Validation Results</a>
+
+    - results for hike_mybookings.html
+      - <details>
+        <summary>My Bookings Page - Summary</summary>
+
+        ![My Bookings Page - Summary](documentation/testing/validation/html-validation-img-rendered-bookings-page.png)
+      </details>
+
+      - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-bookings-page.pdf" target="_blank">My Bookings Page - Full HTML Validation Results</a>
+
+    - results for signup.html
+      - <details>
+        <summary>Signup/Register Page - Summary</summary>
+
+        ![Signup/Register Page - Summary](documentation/testing/validation/html-validation-img-rendered-signup-page.png)
+      </details>
+
+      - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-signup-page.pdf" target="_blank">Signup/Register Page - Full HTML Validation Results</a>
+
+    - results for login.html
+      - <details>
+        <summary>Login/Sign in Page - Summary</summary>
+
+        ![Login/Sign in Page - Summary](documentation/testing/validation/html-validation-img-rendered-login-page.png)
+      </details>
+      
+      - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-login-page.pdf" target="_blank">Login/Sign in Page - Full HTML Validation Results</a>
+
+    - results for logout.html
+      - <details>
+        <summary>Logout/Sign out Page - Summary</summary>
+
+        ![Logout/Sign out Page - Summary](documentation/testing/validation/html-validation-img-rendered-logout-page.png)
+      </details>
+      
+      - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-logout-page.pdf" target="_blank">Logout/Sign out Page - Full HTML Validation Results</a>  
   
 
 - [CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-    - to be written 
-      ![to be written](to be written)
+    - <details>
+      <summary>style.css validation results</summary>
+
+      ![style.css](documentation/testing/validation/css-validation-img1.png)
+      </details>
+
+    - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/css-validation-full-report.pdf" target="_blank">CSS Validation - Full Results</a> 
 
 
 - [Javascript Validator](https://jshint.com/)
 
-    - result for script.js 
-      ![Script JS](documentation/testing/validation/jquery-code-validation.png)
+  <details>
+    <summary>script.js validation results</summary>
 
-    - result for script.test.js 
-      ![Script Test JS](documentation/testing/validation/jquery-test-validation.png)
+    ![Script JS](documentation/testing/validation/jquery-code-validation.png)
+  </details>
+  <details>
+    <summary>script.test.js validation results</summary>
+
+    ![Script Test JS](documentation/testing/validation/jquery-test-validation.png)
+  </details>
+
+- [Python Validator](http://pep8online.com/)
+
+  <details>
+    <summary>project urls.py validation results</summary>
+
+    ![Project urls.py](documentation/testing/validation/pep8-validation-project-urls.png)
+  </details>
+  <details>
+    <summary>project settings.py validation results</summary>
+
+    ![Project settings.py](documentation/testing/validation/pep8-validation-project-settings.png)
+  </details>
+  <details>
+    <summary>application urls.py validation results</summary>
+
+    ![Application urls.py](documentation/testing/validation/pep8-validation-app-urls.png)
+  </details>
+  <details>
+    <summary>admin.py validation results</summary>
+
+    ![admin.py](documentation/testing/validation/pep8-validation-admin.png)
+  </details>
+  <details>
+    <summary>forms.py validation results</summary>
+
+    ![forms.py](documentation/testing/validation/pep8-validation-forms.png)
+  </details>
+  <details>
+    <summary>models.py validation results</summary>
+
+    ![models.py](documentation/testing/validation/pep8-validation-models.png)
+  </details>
+  <details>
+    <summary>views.py validation results</summary>
+
+    ![views.py](documentation/testing/validation/pep8-validation-views.png)
+  </details>
+  <details>
+    <summary>test_admin.py validation results</summary>
+
+    ![test_admin.py](documentation/testing/validation/pep8-validation-test_admin.png)
+  </details>
+  <details>
+    <summary>test_forms.py validation results</summary>
+
+    ![test_forms.py](documentation/testing/validation/pep8-validation-test_forms.png)
+  </details>
+  <details>
+    <summary>test_models.py validation results</summary>
+
+    ![test_models.py](documentation/testing/validation/pep8-validation-test_models.png)
+  </details>
+  <details>
+    <summary>test_views.py validation results</summary>
+
+    ![test_views.py](documentation/testing/validation/pep8-validation-test_views.png)
+  </details>
+  
 
 ### Automated Testing
 
@@ -175,7 +319,9 @@ bootstrap to be added here
       - [views.py](hikebooker/views.py)  test file: [test_views.py](hikebooker/test_views.py)
       - [admin.py](hikebooker/admin.py)  test file: [test_admin.py](hikebooker/test_admin.py)  (tests were added for the customizations made to the django admin functionality)
 
-  - Django test results and coverage :   ??????????????????????
+  - Django test results and coverage :   
+    ![Python Test Results](documentation/testing/results/python-coverage-test-results.png)
+
 
 ### Browser Compatibility
 
