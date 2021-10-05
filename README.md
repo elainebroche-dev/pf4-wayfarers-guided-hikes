@@ -1,5 +1,6 @@
 <h1 align="center">BANFF National Park Hike Booker</h1>
-
+?????????????????????  do tests need to run on progress db ?
+????????? deployment - do I describe requirements.txt and what to do to make a local copy
 [View the live project here](to be written)
 
 Project Goal and into here - to be written
@@ -21,51 +22,131 @@ project is banffnp and app is hikebooker
 
 ### User stories :
 
-* USER STORY US01: Illustrate purpose of application through UI
+* US01: Illustrate purpose of application through UI
   - As a **Site User** I can **view the landing page** so that **I can determine the purpose of the application**
-* USER STORY US02: Navigate site
+* US02: Navigate site
   - As a **Site User** I can **navigate using the menu** so that **I can easily access application functionality**
-* US03 to be written   . ... etc
+* US03: View hike/excursion list
+  - As a **Site User** I can **view a list of hikes/excursions** so that **I can select one to access more details**
+* US04: View hike information
+  - As a **Site User** I can **click on a Hike** so that **I can view it's full details**
+* US05: Book a hike
+  - As a **Site User** I can **book a scheduled hike** so that **a place is reserved for me**
+* US06: View booked hikes
+  - As a **Site User** I can **access a list of hikes I have booked** so that **I can see an itinerary of hikes**
+* US07: Cancel a hike booking
+  - As a **Site User** I can **cancel a hike I have booked** so that **a place is no longer reserved for me**
+* US08: View likes
+  - As a **Site User/Admin** I can **view the number of likes on each hike** so that **I can see which are most popular**
+* US09: Like / Unlike a hike
+  - As a **Site User** I can **like or unlike a hike** so that **I can give feedback on my experience**
+* US10: Comment on hike
+  - As a **Site User** I can **attach comments to a hike** so that **I can give feedback and be involved in the conversation**
+* US11: View comments
+  - As a **Site User/Admin** I can **view comments on individual hikes** so that **feedback can be recorded to help identify any improvements needed or any aspects that worked well**
+* US12: Approve comments
+  - As a **Site Admin** I can **review and then approve or disapprove comments** so that **unsuitable or objectionable content can be filtered out**
+* US13: Account registration and login
+  - As a **Site User** I can **register an account** so that **I can log in and then book a hike, comment on hikes, like hikes**
+* US14: Manage hikes
+  - As a **Site Admin** I can **create, read, update and delete hikes and associated hike schedules** so that **I can manage site content and hike availability**
+* US15: Create hike drafts
+  - As a **Site Admin** I can **create draft hikes** so that **I can finish writing the content later and release once approved**
+* US16 Approve Bookings
+  - As a **Site Admin** I can **review and then approve or disapprove bookings** so that **group size for hikes can be managed**
+* US17 View past hikes
+  - As a **Site User** I can **access a list of hikes in that past that I booked** so that **I can see hikes I have previously done**
 
 ## Features
 
 ### Existing Features
 
-Main Menu - mention responsive ness, burger
-landing page image and text
-hike summary
-Hike List (Landing) Page - difficulty, pic, link to detail, image - is this too big for a feature ?
-Hike Detail Page
-Register
-Sign in
-Sign out
-Comment
-Book
-Like
-View Bookings
-Cancel a booking
-Link to Admin pages for admin user
+-   __F01 Navigation Bar__
+    The navigation bar has a consistent look and placement each page supporting easy and intuitive navigation.  It includes a Logo, and a link to the Home page. If the user is not logged in then links are availabe to the Register and Sign in pages.  If a user is logged in then the links availabe in addition to the Home link are for My Bookings and Sign out; and the active username and a user icon are also displayed.
+    
+    If the user logged in is the admin user then an additional link of Admin is also shown on the navigation bar.  This link takes the user to the Django Admin screens where data in the underlying database can be added, retrieved, modified and deleted.
+    
+    The navigation bar is responsive on multiple screen sizes - on smaller screens it coverts to a 'burger' menu style.  
+    
+    ![Navbar Full](documentation/supp-images/f01-nav-bar-1.png)
+    ![Navbar Full Logged in](documentation/supp-images/f01-nav-bar-2.png)
+    ![Navbar Burger](documentation/supp-images/f01-nav-bar-3.png)
 
 
--   __F01 to be written__
-    - to be written - blah de blah
+-   __F02 Landing page image and text__
+    - At the top of the landing page (home page) there is an area that includes a photograph and a text overlay which together clearly identify the purpose of the site as a place to find and book guided hikes in Banff.  
 
-      ![to be writen](to be written)
+    ![Landing Area](documentation/supp-images/f02-landing.png)
+
+-   __F03 Hike summaries__
+    - Further down on the landing/home page a list of hike summaries are shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
+    
+    ![Hike Summaries](documentation/supp-images/f03-hike-summaries.png)
+
+-   __F04 Hike Detail Page__
+    - When a user clicks on a hike summary title on the home page they are brought to the Hike Detail page for the clicked hike.  Here the user is shown a full description of the hike, information on when the hike details were created and last edited, the trailhead location for the hike, the difficulty rating, distance, estimated duration, number of likes, number of comments and they can read all of the comments approved for the hike which are listed in order most recent first.  Only users who are logged in can comment on a hike, 'like' a hike or book a hike if any have been scheduled.  Commenting on a hike is detailed below in F05 Comment on a hike.  Liking a hike is detailed below in F06 Like a hike.  Booking a hike is detailed below in F07 Book a hike.
+
+    ![Hike Summaries](documentation/supp-images/f04-hike-detail.png)
+
+-   __F05 Comment on hike__
+    - to be written
+
+    ![Hike Comment](documentation/supp-images/f05-hike-comment.png)
+
+    ![Approve Hike Comment](documentation/supp-images/f05-approve-hike-comment.png)
+
+-   __F06 Like a hike__
+    - to be written - toggle
+
+    ![Like Hike](documentation/supp-images/f06-like-hike.png)
+
+-   __F07 Book a hike__
+    - to be writen
+
+    ![Book Hike](documentation/supp-images/f07-book-hike.png)
+
+    ![Approve Booking](documentation/supp-images/f07-approve-hike-booking.png)
+
+-   __F08 My Bookings Page__
+    - to be written
+
+-   __F09 Cancel a hike__
+    - to be written
+
+-   __F10 Register user__
+    - to be written
+
+-   __F11 Sign in user__
+    - to be written
+
+-   __F12 Sign out user__
+    - to be written
+
+-   __F13 Add and Publish a hike__
+    - to be written
+
+-   __F14 On-screen messages__
+    - to be written
 
 
-- __How these features support the user stories__
+
+
+-   __How these features support the user stories__
     - Cto be written
 
 ### Features which could be implemented in the future
 
-- __to be written__
-    - Cto be written
-    - confirmation modal dialog is very basic and could be improved
-    - booking form could be improved to show a month to view calendar with colour coding for scheduled hikes rather than the drop-down
-    - functionality could be added to check for hike capacity and compare that with the booking request to automatically approve/confirm bookings
-    - google maps could be included to pin hike meeting points and show routes
-    - a weather app/widget could be included to show forcasted weather conditions
-    
+-   __Improve modal dialg to confirm deletion__
+    - to be written
+
+-   __Improve UI with intuitive schedule calendar__
+    - to be written
+
+-   __Add hike capacity handling functionality__
+    - to be written
+
+-   __Improve UI with visual route maps__
+    - to be written
 
 ## Design
 
@@ -74,51 +155,50 @@ Link to Admin pages for admin user
 
 -   ### Wireframes
 
-need a note here to say that wireframes have not been done for the django pages that manip data model (look up correct term here)
+    The wireframe diagrams below describe the Home, Hike Detail, My Bookings, Sign in, Sign out and Register pages.  Wireframes are not provided for theDjango Admin pages used by the application to create data records, publish hike data, approve comments and bookings.
 
     <details>
     <summary>Desktop Wireframes</summary>
 
-    ![Desktop Wireframes](to be written)
+    ![Desktop Wireframes](documentation/wireframes/desktop.png)
     </details>
     <details>
     <summary>Tablet Wireframes</summary>
 
-    ![Desktop Wireframes](to be written)
+    ![Tablet Wireframes](documentation/wireframes/ipad.png)
     </details>
     <details>
     <summary>Smartphone Wireframes</summary>
 
-    ![Desktop Wireframes](to be written)
+    ![Smartphone Wireframes](documentation/wireframes/smartphone.png)
     </details>
 
 -   ### Entity-Relationship diagrams for DBMS
     
+   
+
+      Notes on the ER diagrams :
+
+      - The ER diagrams provided show the logical data model.  The many-to-many relationship between hikes and likes is represented as normalized tables to clarify the relationship.  In the models.py file the likes data item is declared as part of the Hike class, with django handling how this relationship is represented in the physical database tables in the background.
+
+      - The users table in the ER diagrams is also a logical representation of the data captured during user registration and how it relates to the application data model.  The users table itself is not declared in the models.py file, but is handled by the django modules and this logical view does not reflect all columns and constraints etc. used by the physical data tables in the database.
+
+      - The data model tables are split into two diagrams so that the relationships between the tables can be easily read.
+
+      - A booking is a many-to-many relationship between schedule and users but because it also has it's own data - places_reserved, it is declared as it's own separate class in models.py
+
+      - Because there could be multiple guided hikes on the same hike trail in a single day, the schedule table needs a composite primary key of the hike_id and 'starts' column.  This is handled using a constraint in models.py.
+
     <details>
-    <summary>ER Diagrams</summary>
+    <summary>ER Diagrams - Hike-Comment-Likes</summary>
 
-    ![ER Diagrams](to be written)
+    ![ER Diagrams1](documentation/entity-relationship-diagrams/hike-comment-likes.png)
     </details>
+    <details>
+    <summary>ER Diagrams - Hike-Schedule-Booking</summary>
 
-    ******************  the following text needs to be tidied up and improved as a description of the er diagrams
-
-  the diagrams show the logical data model.  The many-to-many relationship between hikes and likes is represented as normalized tables to clarify 
-the relationship.  In the models.py file the likes data item is declared as part of the Hike class, with django handling how this relationship is represented in the physical database tables
-in the background.
-
-The users table in the diagram is also a logical representation of the data captured during user registration and how it relates to the application
-data model.  The users table itself is not declared in the models.py file, but is handled by the auth??? modules?? in django and this logical view does not
-reflect all columns and constraints etc. used by the physical data tables in the database.
-
-The data model tables are split into two diagrams so that the relationships between the tables can be easily read.
-
-A booking is a many-to-many relationship between schedule and users but because it also has it's own data - places_reserved, it is declared as
-it's own separate class in models.py
-
-Because there could be multiple guided hikes on the same hike trail in a single day, the schedule table needs a composite primary key of the
-hike_id and 'starts' column.  This is handled using a constraint in models.py.
-
-*************************** end of er description notes
+    ![ER Diagrams2](documentation/entity-relationship-diagrams/hike-schedule-booking.png)
+    </details>
 
 ## Planning
 
@@ -312,7 +392,9 @@ bootstrap to be added here
   - Jest test results :     
     ![JS Test Results](documentation/testing/results/jquery-test-results.png)
 
-   - [Django testing tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) were used to test the application python code.  DB tests were run in the development environment against a local SQLite3 database. Tests were written for the following files :
+   - [Django testing tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) were used to test the application python code.  
+   - DB tests were run in the development environment against a local SQLite3 database. 
+   - Tests were written for the following files :
 
       - [forms.py](hikebooker/forms.py)  test file: [test_forms.py](hikebooker/test_forms.py)
       - [models.py](hikebooker/models.py)  ters file: [test_models.py](hikebooker/test_models.py)
