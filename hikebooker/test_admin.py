@@ -94,7 +94,6 @@ class TestAdmin(TestCase):
     # login as a superuser, use the publish_hikes action to update status of
     # hike created during setup, check the response code returned and
     # check that hike is now status=1 (published)
-
     def test_publish_hikes(self):
         User.objects.create_superuser(
             username='superstar', email='tst@example.com', password='password',

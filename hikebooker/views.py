@@ -9,6 +9,10 @@ import pytz
 
 
 class HikeList(generic.ListView):
+    """
+    Retrieve the hike summaries and set pagination
+    """
+
     model = Hike
     queryset = Hike.objects.filter(status=1).order_by('difficulty',
                                                       '-created_on')
@@ -17,6 +21,14 @@ class HikeList(generic.ListView):
 
 
 class HikeDetail(View):
+    """
+    Display Hike Details for selected hike
+
+    get method : retrieve hike details including comments and likes
+                 and render hike detail page
+
+    post method : validate comment input, store and re-load detail page
+    """
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Hike.objects.filter(status=1)
@@ -43,16 +55,17 @@ class HikeDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        queryset = Hike.objects.filter(status=1)
-        hike = get_object_or_404(queryset, slug=slug)
-        comment_form = CommentForm(data=request.POST)
+        if request.user.is_authenticated:
+            queryset = Hike.objects.filter(status=1)
+            hike = get_object_or_404(queryset, slug=slug)
+            comment_form = CommentForm(data=request.POST)
 
-        if comment_form.is_valid():
-            comment_form.instance.username = request.user
-            comment = comment_form.save(commit=False)
-            comment.hike = hike
-            comment.save()
-            messages.success(request, 'Thank you for your comment !')
+            if comment_form.is_valid():
+                comment_form.instance.username = request.user
+                comment = comment_form.save(commit=False)
+                comment.hike = hike
+                comment.save()
+                messages.success(request, 'Thank you for your comment !')
 
         # User HttpResponseRedirect here instead of render to ensure comment
         # is not re-submitted on page re-load
@@ -60,6 +73,11 @@ class HikeDetail(View):
 
 
 class HikeLike(View):
+    """
+    Allow user to like/unlike the current hike
+
+    post method : toggle 'like' setting for hike for this user
+    """
 
     def post(self, request, slug):
         hike = get_object_or_404(Hike, slug=slug)
@@ -73,6 +91,14 @@ class HikeLike(View):
 
 
 class HikeMyBookings(View):
+    """
+    Display booking information for current user
+
+    get method : retrieve past and upcoming bookings for user
+                 and render my bookings page
+
+    post method : cancel selected booking and reload page
+    """
 
     def get(self, request, *args, **kwargs):
         bookings = Booking.objects.filter(username=self.request.user).filter(
@@ -104,17 +130,26 @@ class HikeMyBookings(View):
 
 
 class HikeBook(View):
+    """
+    Book hike currently displayed on Hike Detail page
+
+    post method : check input, create new booking for current user
+                  for selected schedulded hike then redirect to
+                  bookings page
+    """
 
     def post(self, request):
 
         user = request.user
         places_reserved = request.POST.get('places_reserved')
-        sched_id = request.POST.get('sched_id')
-        sched_hike = get_object_or_404(Schedule, id=sched_id)
-        Booking.objects.create(hike=sched_hike, username=user,
-                               places_reserved=places_reserved)
+        # validate number of places reserved
+        if places_reserved in ['1', '2', '3', '4', '5']:
+            sched_id = request.POST.get('sched_id')
+            sched_hike = get_object_or_404(Schedule, id=sched_id)
+            Booking.objects.create(hike=sched_hike, username=user,
+                                   places_reserved=places_reserved)
+            messages.success(request, 'Thank you for your booking request !')
+            # Used HttpResponseRedirect here instead of render to ensure
+            # booking is not re-submitted on bookings page re-load
 
-        # Used HttpResponseRedirect here instead of render to ensure
-        # booking is not re-submitted on bookings page re-load
-        messages.success(request, 'Thank you for your booking request !')
         return HttpResponseRedirect(reverse('hike_mybookings'))
