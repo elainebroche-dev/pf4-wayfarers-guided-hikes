@@ -12,7 +12,7 @@ project is banffnp and app is hikebooker
 * [User Experience (UX)](#user-experience-ux) 
 * [Features](#features)
 * [Design](#design)
-* [Planning](#planning)
+* [Development Planning](#planning)
 * [Technologies Used](#technologies-used)
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -78,7 +78,7 @@ project is banffnp and app is hikebooker
 
     ![Landing Area](documentation/supp-images/f02-landing.png)
 
--   __F03 Hike summaries__
+-   __F03 Hike Summaries__
     - Further down on the landing/home page a list of hike summaries are shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
     
     ![Hike Summaries](documentation/supp-images/f03-hike-summaries.png)
@@ -117,8 +117,8 @@ project is banffnp and app is hikebooker
     - to be written
 
 -   __F11 Sign in user__
-    - to be written
-
+    - to be written 
+ 
 -   __F12 Sign out user__
     - to be written
 
@@ -150,9 +150,6 @@ project is banffnp and app is hikebooker
 
 ## Design
 
--   ### Typography, Imagery and Colour Scheme
-    - to be written
-
 -   ### Wireframes
 
     The wireframe diagrams below describe the Home, Hike Detail, My Bookings, Sign in, Sign out and Register pages.  Wireframes are not provided for theDjango Admin pages used by the application to create data records, publish hike data, approve comments and bookings.
@@ -175,8 +172,6 @@ project is banffnp and app is hikebooker
 
 -   ### Entity-Relationship diagrams for DBMS
     
-   
-
       Notes on the ER diagrams :
 
       - The ER diagrams provided show the logical data model.  The many-to-many relationship between hikes and likes is represented as normalized tables to clarify the relationship.  In the models.py file the likes data item is declared as part of the Hike class, with django handling how this relationship is represented in the physical database tables in the background.
@@ -540,6 +535,8 @@ https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-back
 - The favicon was created from the "exchange" icon image on [Font Awesome](https://fontawesome.com/) ???????????????????  to be written ??????????????
 - ??? default hike image - boot crossing stream - Photo by <a href="https://unsplash.com/@sickhews?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wes Hicks</a> on <a href="https://unsplash.com/s/photos/hiking-boots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - jumbotron background - woman on boulder - Photo by <a href="https://unsplash.com/@stephenleo1982?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Stephen Leonardi</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+
 hike_pic_1.jpg : Photo by <a href="https://unsplash.com/@caraventurera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Cara Fuller</a> on <a href="https://unsplash.com/s/photos/hike-waterfall?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_2.jpg : Photo by <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_3.jpg : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hiking-canada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -547,13 +544,11 @@ hike_pic_4.jpg : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=
 hike_pic_5.jpg : Photo by <a href="https://unsplash.com/@hollymandarich?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Holly Mandarich</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_6.jpg : Photo by <a href="https://unsplash.com/@toomastartes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toomas Tartes</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_7.jpg : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_8.jpg : Photo by <a href="https://unsplash.com/@jan_huber?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jan Huber</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_9.jpg : Photo by <a href="https://unsplash.com/@bradbarmore?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brad Barmore</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
 hike_pic_10.jpg : Photo by <a href="https://unsplash.com/@guernseyphotographer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon English</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_11.jpg : Photo by <a href="https://unsplash.com/@wanderingteddybear?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ted Bryan Yu</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 hike_pic_12.jpg : Photo by <a href="https://unsplash.com/@hiking_corgi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vlad D</a> on <a href="https://unsplash.com/s/photos/hike-meadow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_13.jpg : Photo by <a href="https://unsplash.com/@322delta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joe Klune</a> on <a href="https://unsplash.com/s/photos/hike-meadow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-       
+
   
 background for login : Photo by <a href="https://unsplash.com/@baileyzindel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bailey Zindel</a> on <a href="https://unsplash.com/s/photos/mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
