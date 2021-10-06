@@ -35,7 +35,7 @@ DEBUG = True
 if development:
     ALLOWED_HOSTS = ['localhost']
 else:
-    ALLOWED_HOSTS = ['pf4-wayfarers.herokuapp.com']
+    ALLOWED_HOSTS = ['pf4-wayfarers.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'wayfarers.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if development:
+if (development == 'True'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -111,7 +111,6 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
