@@ -273,6 +273,12 @@ body {
     margin-bottom: 1rem;
 }
 
+.auth-error-msg {
+    color: red;
+    font-weight: bold;
+    font-size: large;
+}
+
 /* For small screen sizes keep likes and comment nums on a single row */
 @media screen and (max-width: 600px) {
     .xs-col-width {

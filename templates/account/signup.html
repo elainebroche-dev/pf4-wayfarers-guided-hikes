@@ -45,6 +45,9 @@
           {% endif %}
           <button class="btn btn-block btn-form mb-4" type="submit">{% trans "Register" %}</button>
         </form>
+        {% if form.errors %}
+        <p class="auth-error-msg">Registration details are not valid - please try again</p>
+        {% endif %}
       </div>
     </div>
   </div>
