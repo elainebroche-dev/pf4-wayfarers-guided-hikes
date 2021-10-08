@@ -6,7 +6,7 @@
 Project Goal and into here - to be written
 project is banffnp and app is hikebooker
 
-![Mockup](to be written)
+![Mockup](documentation/supp-images/amiresponsive.png)
 
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux) 
@@ -62,91 +62,131 @@ project is banffnp and app is hikebooker
 ### Existing Features
 
 -   __F01 Navigation Bar__
-    The navigation bar has a consistent look and placement each page supporting easy and intuitive navigation.  It includes a Logo, and a link to the Home page. If the user is not logged in then links are availabe to the Register and Sign in pages.  If a user is logged in then the links availabe in addition to the Home link are for My Bookings and Sign out; and the active username and a user icon are also displayed.
+    The navigation bar has a consistent look and placement each page supporting easy and intuitive navigation.  It includes a Logo, and a link to the Home page. If the user is not signed in then links are availabe to the Register and Sign in pages.  If a user is signed in then the links availabe in addition to the Home link are for My Bookings and Sign out; and the active username and a user icon are also displayed.
     
-    If the user logged in is the admin user then an additional link of Admin is also shown on the navigation bar.  This link takes the user to the Django Admin screens where data in the underlying database can be added, retrieved, modified and deleted.
+    If the user signed in is the admin user then an additional link of Admin is also shown on the navigation bar.  This link takes the user to the Django Admin screens where data in the underlying database can be added, retrieved, modified and deleted.
     
     The navigation bar is responsive on multiple screen sizes - on smaller screens it coverts to a 'burger' menu style.  
     
     ![Navbar Full](documentation/supp-images/f01-nav-bar-1.png)
-    ![Navbar Full Logged in](documentation/supp-images/f01-nav-bar-2.png)
+    ![Navbar Full Signed in](documentation/supp-images/f01-nav-bar-2.png)
     ![Navbar Burger](documentation/supp-images/f01-nav-bar-3.png)
 
 
 -   __F02 Landing page image and text__
-    - At the top of the landing page (home page) there is an area that includes a photograph and a text overlay which together clearly identify the purpose of the site as a place to find and book guided hikes in Banff.  
+    At the top of the landing page (home page) there is an area that includes a photograph and a text overlay which together clearly identify the purpose of the site as a place to find and book guided hikes in Banff.  
 
     ![Landing Area](documentation/supp-images/f02-landing.png)
 
 -   __F03 Hike Summaries__
-    - Further down on the landing/home page a list of hike summaries are shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
+    Further down on the landing/home page a list of hike summaries are shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
     
     ![Hike Summaries](documentation/supp-images/f03-hike-summaries.png)
 
 -   __F04 Hike Detail Page__
-    - When a user clicks on a hike summary title on the home page they are brought to the Hike Detail page for the clicked hike.  Here the user is shown a full description of the hike, information on when the hike details were created and last edited, the trailhead location for the hike, the difficulty rating, distance, estimated duration, number of likes, number of comments and they can read all of the comments approved for the hike which are listed in order most recent first.  Only users who are logged in can comment on a hike, 'like' a hike or book a hike if any have been scheduled.  Commenting on a hike is detailed below in F05 Comment on a hike.  Liking a hike is detailed below in F06 Like a hike.  Booking a hike is detailed below in F07 Book a hike.
+    When a user clicks on a hike summary title on the home page they are brought to the Hike Detail page for the clicked hike.  Here the user is shown a full description of the hike, information on when the hike details were created and last edited, the trailhead location for the hike, the difficulty rating, distance, estimated duration, number of likes, number of comments and they can read all of the comments approved for the hike which are listed in order most recent first.  Only users who are signed in can comment on a hike, 'like' a hike or book a hike if any have been scheduled.  Commenting on a hike is detailed below in F05 Comment on a hike.  Liking a hike is detailed below in F06 Like a hike.  Booking a hike is detailed below in F07 Book a hike.
 
     ![Hike Summaries](documentation/supp-images/f04-hike-detail.png)
 
 -   __F05 Comment on hike__
-    - to be written
+    In order to comment on a hike a user must be signed in.  A comment can be added on any Hike Detail page.  The user enters their comment in a text box under the hike description and clicks on Submit.  The comment must be approved by the admin user before it will be visible on the Hike Detail page.  
+    
+    To approve comments the admin user logs in to the admin pages, selects the comment(s) to be approved, chooses the 'Approve Comments' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the comment row to open it, updating the value in the approved field and saving the update.
+    
+    All comments approved for a hike are shown on that hike's Hike Detail page in the order of newest first.
 
     ![Hike Comment](documentation/supp-images/f05-hike-comment.png)
 
     ![Approve Hike Comment](documentation/supp-images/f05-approve-hike-comment.png)
 
 -   __F06 Like a hike__
-    - to be written - toggle
+    In order to like a hike a user must be signed in.  A hike can be liked on it's Hike Detail page.  The user simply needs to click on the like/heart icon to toggle between like/unlike.
 
     ![Like Hike](documentation/supp-images/f06-like-hike.png)
 
 -   __F07 Book a hike__
-    - to be writen
+    In order to book a hike a user must be signed in.  A hike can be booked from it's Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book Hike button to complete the booking and be re-directed to their My Bookings page to see all of their upcoming and past bookings.
+
+    The list of scheduled hikes drop-down on the Hike Detail page will only show hikes in the future, not any with dates in the past.  If no future dates/times are scheduled for a hike then the list is empty and the Book Hike button is deactivated.
+
+    All of the users booked hikes will appear on their My Bookings page - even if not yet confirmed/approved - this allows the user to see if their booking request has been accepted or not.  Bookings need to be confirmed by admin to ensure that a hike is not over booked.
+
+    To approve bookings the admin user logs in to the admin pages, selects the booking(s) to be approved, chooses the 'Approve Bookings' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the booking row to open it, updating the value in the approved field and saving the update.
 
     ![Book Hike](documentation/supp-images/f07-book-hike.png)
 
     ![Approve Booking](documentation/supp-images/f07-approve-hike-booking.png)
 
 -   __F08 My Bookings Page__
-    - to be written
+    In order to access the My Bookings page a user must be signed in.  The My Bookings page provides a convenient place for the user to quickly view their upcoming and past bookings.  Upcoming bookings can be cancelled using the Cancel Booking button associated with the booking - this will be detailed in section F09 below.  By clicking on the image associated with the booking the user can go to the Hike Detail page for the hike.   The booking also summaries the number of people the booking is for and whether or not the booking has been confirmed/approved.
 
--   __F09 Cancel a hike__
-    - to be written
+    ![My Bookings](documentation/supp-images/f08-my-bookings.png)
+
+-   __F09 Cancel a hike booking__
+    To cancel a hike booking the user that booked the hike must be signed in.  They can view the hike booking on the My Bookings table and cancel by clicking on the Cancel Hike button associated with the booking.  The user will be prompted to confirm that they really want to cancel to prevent them accientally deleting their booking.  Bookings with a scheduled date in the past cannot be cancelled.
+
+    ![Cancel Booking](documentation/supp-images/f09-cancel-booking.png)
 
 -   __F10 Register user__
-    - to be written
+    A user needs to be registered before they can sign in.  The option to Register appears on the Navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
+
+    ![Register User](documentation/supp-images/f10-register-user.png)
 
 -   __F11 Sign in user__
-    - to be written 
+    Once registered a user can sign in and will have access to extra functionality, namely :
+        - can comment on a hike
+        - can like a hike
+        - can book and cancel hikes
+
+    To sign in the user must provide a) a registered username and b) the password for the username
+     
+    ![Sign in User](documentation/supp-images/f11-signin-user.png)
  
 -   __F12 Sign out user__
-    - to be written
+    A signed in user can sign out by clicking on the Sign out link on the Navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
+
+    ![Sign out User](documentation/supp-images/f12-signout-user.png)
 
 -   __F13 Add and Publish a hike__
-    - to be written
+    The admin user adds and publishes hikes using the admin pages.  The admin user can access these pages either by appending '/admin' to the application url or by signing up to the application and clicking on the Admin link that appears on the Navigation bar only when admin is signed in.
 
--   __F14 On-screen messages__
-    - to be written
+    To add a new hike, the admin user can use the "+ Add" link on the rhs of the Hike table and then fill in the data fields for the hike.  Hike titles must be unique and a slug will be automatically generated as the title is typed in.   A rich editor (summernote) is made available for the hike description Content so that formatting can be easily added.  Hike difficulty is selected from a drop-down list and the distance and duration numbers are rounded to 2 decimal places.  A default image will be used for the hike if the admin user does not upload one.  Hikes can be saved with a status of Draft (default) and will not be visible to general users until this status is updated to Published - this allows the admin to save a hike a WIP and finish it later.
 
+    ![Add a hike](documentation/supp-images/f13-add-a-hike.png)
 
+-   __F14 Add a schedule for a hike__
+    The admin user adds scheduled hikes using the admin pages.  See F13 on the admin user can navigate to the admin pages.
+
+    To add a new date/time for a hike the admin user can use the "+ Add" link for the Schedule table.  To fill in the data fields a hike needs to be selected from the drop-down list of existing hikes, a date and time needs to be specified and text is added specifying where the meeting point for the hike will be.
+
+    Once a new schedule for a hike is added it becomes available for booking on that hikes's Hike Detail page (as long as the date/time assigned to the hike is not in the past).
+
+    ![Add hike schedule](documentation/supp-images/f14-add-hike-schedule.png)
+
+-   __F15 On-screen messages__
+    To enhance usability of the application, user messages appear on-screen to confirm when certain actions have happened or report on problems.  For successful operations, a message will appear at the top of the screen and then fade-out/slide-up after 5 seconds.  For problems logging in, messages will appear in red text on-screen and stay until a user attempts the operation again.
+
+    ![Message example 1](documentation/supp-images/f15-message-example-1.png)
+
+    ![Message example 2](documentation/supp-images/f15-message-example-2.png)
 
 
 -   __How these features support the user stories__
-    - Cto be written
+    - Cto be written - traceability matrix needed here
 
 ### Features which could be implemented in the future
 
 -   __Improve modal dialg to confirm deletion__
-    - to be written
+    The dialog to ask the user to confirm that they want to cancel a booking is very basic and should be improved have a format consistent with the application.
 
 -   __Improve UI with intuitive schedule calendar__
-    - to be written
+    Ideally the selection of booking dates and times would use a more sophisticated visual calendar with available days selectable and with a different colour background. 
 
 -   __Add hike capacity handling functionality__
-    - to be written
+    Ensuring that bookings do no exceed capacity is currently handled by requiring that the admin use confirm/approve bookings.  This could be improved by including a capacity limit field in the schedule table and adding logic to calculate remaining spaces available as part of data validation on booking.
 
 -   __Improve UI with visual route maps__
-    - to be written
+    An external map API such as Google Maps could be added to give the user a richer and more interactive user-experience and help them visualize the hike routes.
 
 ## Design
 
@@ -439,6 +479,8 @@ do I need to test settings.py
 - Click the "Code" button to the right of the screen, click HTTPs and copy the link there
 - Open a GitBash terminal and navigate to the directory where you want to locate the clone
 - On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process
+- To install the packages required by the application use the command : pip install -r requirements.txt
+- When developing and running the application locally set DEBUG=True in the settings.py file
 - Changes made to the local clone can be pushed back to the repository using the following commands :
 
   - git add *filenames*  (or "." to add all changed files)
@@ -473,13 +515,26 @@ do I need to test settings.py
 
 ### Connect the Heroku app to the GitHub repository
 - Go to the Application Configuration page for the application on Heroku and click on the Deploy tab.
-- Select GitHub as the Deployment Method and if prompted, confirm that you want to connect to GitHub. Enter the name of the github repository (the one used for this project is (https://github.com/elainebroche-dev/pf4-guided-hike-booker) and click on Connect to link up the Heroku app to the GitHub repository code.
+- Select GitHub as the Deployment Method and if prompted, confirm that you want to connect to GitHub. Enter the name of the github repository (the one used for this project is (???????) and click on Connect to link up the Heroku app to the GitHub repository code.
 - Scroll down the page and choose to either Automatically Deploy each time changes are pushed to GitHub, or Manually deploy - for this project Automatic Deploy was selected.
 - The application can be run from the Application Configuration page by clicking on the Open App button.
-- The live link for this project is (https://banffnp.herokuapp.com/)
+- The live link for this project is (?????????)
 
 
+?????? mention env.py  - COLLECTSTATIC ?
 
+
+### Final Deployment steps
+1. set DEBUG flag to false in settings.py
+2. add this line to the settings.py to make summernote work on deployed env (security feature CORS):
+	X_FRAME_OPTIONS = 'SAMEORIGIN'
+3. may be worth re-gening requirements.txt
+4. push files to github
+5. go to heroku application and reveal config vars
+6. remove DISABLE_COLLECTSTATIC = 1 env variable
+7. go to deploy tab and deploy branch
+
+linke to app : https://pf4-wayfarers.herokuapp.com/
 ### Create Postgres DB 
 - While still logg
 
