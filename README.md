@@ -1,10 +1,12 @@
 <h1 align="center">BANFF National Park Hike Booker</h1>
-?????????????????????  do tests need to run on progress db ?
-????????? deployment - do I describe requirements.txt and what to do to make a local copy
-[View the live project here](to be written)
 
-Project Goal and into here - to be written
-project is banffnp and app is hikebooker
+[View the live project here](https://pf4-wayfarers.herokuapp.com/)
+
+The Wayfarers project contains an application called Hike Booker which is a website that gives details on guided hikes in the Banff National Park area.
+
+General users can view details on the hikes such as difficulty, distance and estimated duration as well as a description of the route.   Users can also register with the website and sign in - allowing them to then comment on hike routes, 'like' hikes and manage their bookings for scheduled hikes.
+
+The admin user of the site can add new hike routes, approve general user comments, schedule guided hikes,  and approve/confirm bookings for scheduled hikes.
 
 ![Mockup](documentation/supp-images/amiresponsive.png)
 
@@ -12,7 +14,7 @@ project is banffnp and app is hikebooker
 * [User Experience (UX)](#user-experience-ux) 
 * [Features](#features)
 * [Design](#design)
-* [Development Planning](#planning)
+* [Planning](#planning)
 * [Technologies Used](#technologies-used)
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -62,6 +64,7 @@ project is banffnp and app is hikebooker
 ### Existing Features
 
 -   __F01 Navigation Bar__
+    
     The navigation bar has a consistent look and placement each page supporting easy and intuitive navigation.  It includes a Logo, and a link to the Home page. If the user is not signed in then links are availabe to the Register and Sign in pages.  If a user is signed in then the links availabe in addition to the Home link are for My Bookings and Sign out; and the active username and a user icon are also displayed.
     
     If the user signed in is the admin user then an additional link of Admin is also shown on the navigation bar.  This link takes the user to the Django Admin screens where data in the underlying database can be added, retrieved, modified and deleted.
@@ -74,21 +77,25 @@ project is banffnp and app is hikebooker
 
 
 -   __F02 Landing page image and text__
+    
     At the top of the landing page (home page) there is an area that includes a photograph and a text overlay which together clearly identify the purpose of the site as a place to find and book guided hikes in Banff.  
 
     ![Landing Area](documentation/supp-images/f02-landing.png)
 
 -   __F03 Hike Summaries__
+    
     Further down on the landing/home page a list of hike summaries are shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
     
     ![Hike Summaries](documentation/supp-images/f03-hike-summaries.png)
 
 -   __F04 Hike Detail Page__
+    
     When a user clicks on a hike summary title on the home page they are brought to the Hike Detail page for the clicked hike.  Here the user is shown a full description of the hike, information on when the hike details were created and last edited, the trailhead location for the hike, the difficulty rating, distance, estimated duration, number of likes, number of comments and they can read all of the comments approved for the hike which are listed in order most recent first.  Only users who are signed in can comment on a hike, 'like' a hike or book a hike if any have been scheduled.  Commenting on a hike is detailed below in F05 Comment on a hike.  Liking a hike is detailed below in F06 Like a hike.  Booking a hike is detailed below in F07 Book a hike.
 
-    ![Hike Summaries](documentation/supp-images/f04-hike-detail.png)
+    ![Hike Detail](documentation/supp-images/f04-hike-detail.png)
 
 -   __F05 Comment on hike__
+    
     In order to comment on a hike a user must be signed in.  A comment can be added on any Hike Detail page.  The user enters their comment in a text box under the hike description and clicks on Submit.  The comment must be approved by the admin user before it will be visible on the Hike Detail page.  
     
     To approve comments the admin user logs in to the admin pages, selects the comment(s) to be approved, chooses the 'Approve Comments' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the comment row to open it, updating the value in the approved field and saving the update.
@@ -105,9 +112,10 @@ project is banffnp and app is hikebooker
     ![Like Hike](documentation/supp-images/f06-like-hike.png)
 
 -   __F07 Book a hike__
-    In order to book a hike a user must be signed in.  A hike can be booked from it's Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book Hike button to complete the booking and be re-directed to their My Bookings page to see all of their upcoming and past bookings.
+    
+    In order to book a hike a user must be signed in.  A hike can be booked from it's Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book button to complete the booking and be re-directed to their My Bookings page to see all of their upcoming and past bookings.
 
-    The list of scheduled hikes drop-down on the Hike Detail page will only show hikes in the future, not any with dates in the past.  If no future dates/times are scheduled for a hike then the list is empty and the Book Hike button is deactivated.
+    The list of scheduled hikes drop-down on the Hike Detail page will only show hikes in the future, not any with dates in the past.  If no future dates/times are scheduled for a hike then the list is empty and the Book button is deactivated.
 
     All of the users booked hikes will appear on their My Bookings page - even if not yet confirmed/approved - this allows the user to see if their booking request has been accepted or not.  Bookings need to be confirmed by admin to ensure that a hike is not over booked.
 
@@ -118,43 +126,51 @@ project is banffnp and app is hikebooker
     ![Approve Booking](documentation/supp-images/f07-approve-hike-booking.png)
 
 -   __F08 My Bookings Page__
+    
     In order to access the My Bookings page a user must be signed in.  The My Bookings page provides a convenient place for the user to quickly view their upcoming and past bookings.  Upcoming bookings can be cancelled using the Cancel Booking button associated with the booking - this will be detailed in section F09 below.  By clicking on the image associated with the booking the user can go to the Hike Detail page for the hike.   The booking also summaries the number of people the booking is for and whether or not the booking has been confirmed/approved.
 
     ![My Bookings](documentation/supp-images/f08-my-bookings.png)
 
 -   __F09 Cancel a hike booking__
+    
     To cancel a hike booking the user that booked the hike must be signed in.  They can view the hike booking on the My Bookings table and cancel by clicking on the Cancel Hike button associated with the booking.  The user will be prompted to confirm that they really want to cancel to prevent them accientally deleting their booking.  Bookings with a scheduled date in the past cannot be cancelled.
 
     ![Cancel Booking](documentation/supp-images/f09-cancel-booking.png)
 
--   __F10 Register user__
-    A user needs to be registered before they can sign in.  The option to Register appears on the Navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
+-   __F10 User authentication__
+    
+    The application provides the following user authentication related functions :
 
-    ![Register User](documentation/supp-images/f10-register-user.png)
+    - User Registration
+      A user needs to be registered before they can sign in.  The option to Register appears on the Navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
 
--   __F11 Sign in user__
-    Once registered a user can sign in and will have access to extra functionality, namely :
+      ![Register User](documentation/supp-images/f10-register-user.png)
+
+    - User Sign in
+      Once registered a user can sign in and will have access to extra functionality, namely :
         - can comment on a hike
         - can like a hike
         - can book and cancel hikes
 
-    To sign in the user must provide a) a registered username and b) the password for the username
+      To sign in the user must provide a) a registered username and b) the password for the username
      
-    ![Sign in User](documentation/supp-images/f11-signin-user.png)
- 
--   __F12 Sign out user__
-    A signed in user can sign out by clicking on the Sign out link on the Navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
+      ![Sign in User](documentation/supp-images/f11-signin-user.png)
+      
+    - User Sign out
+      A signed in user can sign out by clicking on the Sign out link on the Navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
 
-    ![Sign out User](documentation/supp-images/f12-signout-user.png)
+      ![Sign out User](documentation/supp-images/f12-signout-user.png)
 
--   __F13 Add and Publish a hike__
+-   __F11 Add and Publish a hike__
+    
     The admin user adds and publishes hikes using the admin pages.  The admin user can access these pages either by appending '/admin' to the application url or by signing up to the application and clicking on the Admin link that appears on the Navigation bar only when admin is signed in.
 
     To add a new hike, the admin user can use the "+ Add" link on the rhs of the Hike table and then fill in the data fields for the hike.  Hike titles must be unique and a slug will be automatically generated as the title is typed in.   A rich editor (summernote) is made available for the hike description Content so that formatting can be easily added.  Hike difficulty is selected from a drop-down list and the distance and duration numbers are rounded to 2 decimal places.  A default image will be used for the hike if the admin user does not upload one.  Hikes can be saved with a status of Draft (default) and will not be visible to general users until this status is updated to Published - this allows the admin to save a hike a WIP and finish it later.
 
     ![Add a hike](documentation/supp-images/f13-add-a-hike.png)
 
--   __F14 Add a schedule for a hike__
+-   __F12 Add a schedule for a hike__
+    
     The admin user adds scheduled hikes using the admin pages.  See F13 on the admin user can navigate to the admin pages.
 
     To add a new date/time for a hike the admin user can use the "+ Add" link for the Schedule table.  To fill in the data fields a hike needs to be selected from the drop-down list of existing hikes, a date and time needs to be specified and text is added specifying where the meeting point for the hike will be.
@@ -163,7 +179,8 @@ project is banffnp and app is hikebooker
 
     ![Add hike schedule](documentation/supp-images/f14-add-hike-schedule.png)
 
--   __F15 On-screen messages__
+-   __F13 On-screen messages__
+    
     To enhance usability of the application, user messages appear on-screen to confirm when certain actions have happened or report on problems.  For successful operations, a message will appear at the top of the screen and then fade-out/slide-up after 5 seconds.  For problems logging in, messages will appear in red text on-screen and stay until a user attempts the operation again.
 
     ![Message example 1](documentation/supp-images/f15-message-example-1.png)
@@ -172,21 +189,33 @@ project is banffnp and app is hikebooker
 
 
 -   __How these features support the user stories__
-    - Cto be written - traceability matrix needed here
+    
+    The User Stories in the [User Experience (UX)](#user-experience-ux) part of this document are numbered 1 to 17.  The existing features are listed above as F01 to F13.  Below is a traceability matrix cross-referencing the user stories with the features, illustrating which features support which stories :
+        
+    ![User Story Feature Matrix](documentation/supp-images/traceability-matrix.png)
+
 
 ### Features which could be implemented in the future
 
 -   __Improve modal dialg to confirm deletion__
+    
     The dialog to ask the user to confirm that they want to cancel a booking is very basic and should be improved have a format consistent with the application.
 
 -   __Improve UI with intuitive schedule calendar__
+    
     Ideally the selection of booking dates and times would use a more sophisticated visual calendar with available days selectable and with a different colour background. 
 
 -   __Add hike capacity handling functionality__
+    
     Ensuring that bookings do no exceed capacity is currently handled by requiring that the admin use confirm/approve bookings.  This could be improved by including a capacity limit field in the schedule table and adding logic to calculate remaining spaces available as part of data validation on booking.
 
 -   __Improve UI with visual route maps__
+    
     An external map API such as Google Maps could be added to give the user a richer and more interactive user-experience and help them visualize the hike routes.
+
+-   __Improve integration of admin pages__
+    
+    A link to the Admin pages from the application nav bar was added and the favicon appears on the adming pages but the overall look and feel of the admin pages could be restyled to better integrate them with the application
 
 ## Design
 
@@ -237,7 +266,10 @@ project is banffnp and app is hikebooker
 
 ## Planning
 
-### to be written - include information and links here re agile process used
+A GitHub project with linked issues was used as the Agile tool for this project.  User Stories with acceptance criteria were defined using GitHub Issues and development of code for these stories was managed using a Kanban board.  All of the User Stories were linked to a 'parent' Epic issue to show how they all supported the over-arching goal of the project.  The acceptance criteria were tested as each story moved to 'Done' and were also included in the final pre-submission manual testing documented in the Testing section of this README.
+
+The Epic, User Stories and Kanban board can be accessed here : [Wayfarers Agile Tool](https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/projects/1)
+
 
 ## Technologies Used
 
@@ -245,20 +277,19 @@ project is banffnp and app is hikebooker
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
--   [Javascript](https://en.wikipedia.org/wiki/JavaScript)
--   [to be written](to be written)
--   [jquery] - for the alert fade
+-   [Jquery](https://jquery.com/)
+-   [Python](https://www.python.org/)
 
 ### Frameworks, Libraries & Programs Used
 
--   [Google Fonts:](https://fonts.google.com/) to be written ??????????????????
+-   [Google Fonts:](https://fonts.google.com/) used for the Lato font
 -   [Font Awesome:](https://fontawesome.com/) was used to add icons for aesthetic and UX purposes.
 -   [Git:](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
--   [GitHub:](https://github.com/) is used as the respository for the projects code after being pushed from Git.  
--   [GitHub:](https://github.com/) to be written re agile ?????????????
+-   [GitHub:](https://github.com/) is used as the respository for the projects code after being pushed from Git. In addition, for this project GitHub was used for the agile development aspect through the use of User Stories (GitHub Issues) and tracking them on a Kanban board.
 -   [dbdiagram.io](https://dbdiagram.io/home) was used to create the Entity Relationship diagrams for the application data model
 -   [Balsamiq:](https://balsamiq.com/) was used to create the wireframes during the design process.
 -   [Django](https://www.djangoproject.com/) used as the framework to support rapid and secure development of the application
+-   [Bootstrap](https://getbootstrap.com/) used to build responsive web pages
 -   [Gunicorn](https://gunicorn.org/) used as the Web Server to run Django on Heroku
 -   [dj_database_url](https://pypi.org/project/dj-database-url/) library to allow use database urls to connect to the postgres db
 -   [psycopg2](https://pypi.org/project/psycopg2/) database adapter to support the connection to the postgres db
@@ -267,12 +298,10 @@ project is banffnp and app is hikebooker
 -   [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) used for account registration and authentication
 -   [Django crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to simplify form rendering
 -   [jquery library](https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js) used to fade out alert messages
--   [Django tessting tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) used for python mvt testing
+-   [Django testing tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) used for python mvt testing
 -   [Jest](https://jestjs.io/) - used to test jquery in script.js
 -   [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) used to check how much of the python code has been covered by 
 automated tests
-- check this list against the files referenced in base.html
-bootstrap to be added here
 
 ## Testing
 
@@ -442,38 +471,33 @@ bootstrap to be added here
 
 ### Browser Compatibility
 
-- Testing has been carried out on the following browsers :
-    - to be written
+- Chrome DevTools was used to test the responsiveness of the application on different screen sizes.  In addition, testing has been carried out on the following browsers :
+    - Google Chrome version 9.0.4606.81 (64-bit)
+    - Firefox version 93.0 (64-bit)
+    - Microsoft Edge 94.0.992.38 (64-bit)
  
     
 ### Manual Testing Test Cases and Results
 
-- The below table details the test cases that were used, the results and a cross-reference to the Feature ID that each test case exercised (click to open image).  The test cases are primarily based on the User Story acceptance criteria that we used to test iterations of the code during development.
-
-  <details>
-    <summary>Test Cases</summary>
-
-    ![Test Cases](to be written)
-  </details>
+- The below pdf details the test cases that were used, the results and a cross-reference to the Feature ID that each test case exercised (click link to open pdf).  The test cases are primarily based on the User Story acceptance criteria that we used to test iterations of the code during development.
   
+  - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/517f5abbe2b0bd575b9da340f0560d13466340a4/documentation/testing/results/test-cases.pdf" target="_blank">Manual Testing - Test Cases and Results</a>
 
 ### Known bugs
 
-- to be written
+- Currently no known bugs.
 
 ## Deployment
 
-to be written blah blah  - don't forget to mention DEBUG
+Detailed below are instructions on how to clone this project repository and the steps to configure and deploy the application.  Code Institute also provides a summary of these steps here : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
 
-check for errors
-check for commented out code
-do I need to test settings.py
+1. How to Clone the Repository
+2. Create Application and Postgres DB on Heroku
+3. Configure Cloudinary to host images used by the application
+4. Connect the Heroku app to the GitHub repository
+5. Final Deployment steps
 
-1. Create application and Postgres DB on Heroku
-2. Create Postgres DB and link on app on Heroku
-3. Configure environment variables
-
-### How to clone the repository 
+### How to Clone the Repository 
 
 - Go to the https://github.com/elainebroche-dev/pf4-guided-hike-booker repository on GitHub 
 - Click the "Code" button to the right of the screen, click HTTPs and copy the link there
@@ -496,6 +520,7 @@ do I need to test settings.py
 - On the Application Configuration page for the new app, click on the Resources tab.
 - In the Add-ons search bar enter "Postgres" and select "Heroku Postgres" from the list - click the "Submit Order Form" button on the pop-up dialog.
 - Next click on Settings on the Application Configuration page and click on the "Reveal Config Vars" button - check the DATABASE_URL has been automatically set up. 
+- Add a new Config Var called DISABLE_COLLECTSTATIC and assign it a value of 1.
 - Add a new Config Var called SECRET_KEY and assign it a value - any random string of letters, digits and symbols.
 - The settings.py file should be updated to use the DATABASE_URL and SECRET_KEY environment variable values as follows :
 
@@ -506,109 +531,85 @@ do I need to test settings.py
 - In Gitpod, in the project terminal window, run the command : python3 manage.py migrate to initialize the data model in postgres database.
 - Make sure the project requirements.txt file is up to date with all necessary supporting files by entering the command : pip3 freeze --local > requirements.txt
 - Commit and push any local changes to GitHub.
+- In order to be able to run the application on localhost, also add SECRECT_KEY and DATABASE_URL to env.py
 
 ### Configure Cloudinary to host images used by the application
 - Log in to Cloudinary - create an account if needed.  To create the account provide your name, email and setup a password.  For "primary interest" you can choose "Programmable Media for image and video API".  Click "Create Account" and you will be sent an email to verify your account and bring you to the dashboard.
 - From the dashboard, copy the "API Environment variable" value by clicking on the "Copy to clipboard" link.
 - Log in to Heroku and go to the Application Configuration page for the application.  Click on Settings and click on the "Reveal Config Vars" button.
 - Add a new Config Var called CLOUDINARY_URL and assign it the value copied from the Cloudinary dashboard, but remove the "CLOUDINARY_URL=" at the beginning of the string. 
+- In order to be able to run the application on localhost, also add CLOUDINARY_URL to env.py
 
 ### Connect the Heroku app to the GitHub repository
 - Go to the Application Configuration page for the application on Heroku and click on the Deploy tab.
-- Select GitHub as the Deployment Method and if prompted, confirm that you want to connect to GitHub. Enter the name of the github repository (the one used for this project is (???????) and click on Connect to link up the Heroku app to the GitHub repository code.
-- Scroll down the page and choose to either Automatically Deploy each time changes are pushed to GitHub, or Manually deploy - for this project Automatic Deploy was selected.
+- Select GitHub as the Deployment Method and if prompted, confirm that you want to connect to GitHub. Enter the name of the github repository (the one used for this project is (https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes) and click on Connect to link up the Heroku app to the GitHub repository code.
+- Scroll down the page and choose to either Automatically Deploy each time changes are pushed to GitHub, or Manually deploy - for this project Manual Deploy was selected.
 - The application can be run from the Application Configuration page by clicking on the Open App button.
-- The live link for this project is (?????????)
-
-
-?????? mention env.py  - COLLECTSTATIC ?
-
+- The live link for this project is (https://pf4-wayfarers.herokuapp.com/)
 
 ### Final Deployment steps
-1. set DEBUG flag to false in settings.py
-2. add this line to the settings.py to make summernote work on deployed env (security feature CORS):
-	X_FRAME_OPTIONS = 'SAMEORIGIN'
-3. may be worth re-gening requirements.txt
-4. push files to github
-5. go to heroku application and reveal config vars
-6. remove DISABLE_COLLECTSTATIC = 1 env variable
-7. go to deploy tab and deploy branch
+Once code changes have been completed and tested on localhost, the application can prepared for release deployment as follows :
+- Set DEBUG flag to False in settings.py
+- Add this line to the settings.py to make summernote work on deployed environment (security feature CORS): X_FRAME_OPTIONS = 'SAMEORIGIN'
+- Ensure requirements.txt is up to date using the command : pip3 freeze --local > requirements.txt
+- Push files to GitHub
+- In the Heroku Config Vars for the application delete this variable :  DISABLE_COLLECTSTATIC
+- On the Heroku dashboard go to the Deploy tab for the application and click on deploy branch
 
-linke to app : https://pf4-wayfarers.herokuapp.com/
-### Create Postgres DB 
-- While still logg
-
-  The live link can be found here - [to be written](to be written) 
+### The live link can be found here - [P4-Wayfarers](https://pf4-wayfarers.herokuapp.com/) 
 
 
- 
 ## Credits 
 
-
-  
-
 ### Code 
-def need to reference the blog project - a lot of code based on this project
-constraints https://docs.djangoproject.com/en/3.2/ref/models/constraints/
-error when a foreign key field was included in search field list https://stackoverflow.com/questions/11754877/troubleshooting-related-field-has-invalid-lookup-icontains
-checks for capacity : https://stackoverflow.com/questions/65416042/max-and-min-values-for-a-django-model-field-according-to-the-values-already-int
-talk about the 2 walkthroughs - specifically for testing and for basic html and css structures  https://github.com/Code-Institute-Solutions/django-blog-starter-files/tree/master/templates
-round decimal field to 2 places https://stackoverflow.com/questions/37958130/automatically-round-djangos-decimalfield-according-to-the-max-digits-and-decima
-information on jumbotron images
-https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-background-image
-- code on how to removed trailing zeroes from decimal fields - normalize function - https://stackoverflow.com/questions/40135464/django-remove-trailing-zeroes-for-a-decimal-in-a-template
-- code/setting to turn off auth email verification : https://stackoverflow.com/questions/53968044/django-user-registration-error-with-django-rest-auth-package
-- some ideas on how to format the authentication/login/reg etc pages came from : https://www.bootstrapdash.com/product/free-bootstrap-login/#product-demo-section
-- help with navbar active : https://stackoverflow.com/questions/32931436/active-tag-on-bootstrap-with-django
-- code to remove class from base.html : https://stackoverflow.com/questions/34232936/dry-method-to-add-a-class-to-body-in-the-base-template
-- code to help with order_by for composite foreign key : https://stackoverflow.com/questions/1474135/django-admin-ordering-of-foreignkey-and-manytomanyfield-relations-referencing-u
-- code to help filter upcoming bookings : https://stackoverflow.com/questions/21576727/django-records-greater-than-particular-date
-- code to build dropdown for schedule : https://stackoverflow.com/questions/57533058/django-how-to-add-items-to-bootstrap-dropdown
-- code on how to build dropdown : https://getbootstrap.com/docs/5.0/components/dropdowns/
-- code on how to make 12345 list : https://stackoverflow.com/questions/4395230/building-a-list-in-django-templates
-- code on how to display messages to user : https://stackoverflow.com/questions/28240746/django-how-to-implement-alertpopup-message-after-complete-method-in-view
-- more code on fade : https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close
-- code to test automatically generated dates : https://stackoverflow.com/questions/49874923/how-to-test-auto-now-add-in-django
-- code on how to use setUpTestData based on info from here : https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup
-- code on how to create a user reference and log them in : https://stackoverflow.com/questions/2619102/djangos-self-client-login-does-not-work-in-unit-tests
-- code to help with request factory : https://gist.github.com/dkarchmer/99a35f00503458a4fa3088f5c8215381
-- code to help with naive date : https://stackoverflow.com/questions/4530069/how-do-i-get-a-value-of-datetime-today-in-python-that-is-timezone-aware
-- code to help with testing admin.py customizations : https://newbedev.com/testing-custom-admin-actions-in-django
-- code on how to delay jest test : https://stackoverflow.com/questions/46077176/jest-settimeout-not-pausing-test
-- code on how to stop jquery animations for jest testing : https://stackoverflow.com/questions/61295452/jest-test-jquery-fadein-fadeout-on-specific-elements
-
-### Configuration and Deployment
-- The Code Institute "Django Blog Cheat Sheet" was used extensively to install and configure frameworks and libraries, set up the dbms and prepare the application for deployment : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
+- Much of the coding and testing relies heavily on information in the "Hello Django" and "I Think Therefore I Blog" walkthroughs in the Code Institue Full Stack Frameworks module. 
+- Code on how to implement data model constraints was based on information found here : [Constraints](https://docs.djangoproject.com/en/3.2/ref/models/constraints/)
+- Information on errors when a foreign key field was included in search field list was found here : [Search Forgein Key](https://stackoverflow.com/questions/11754877/troubleshooting-related-field-has-invalid-lookup-icontains)
+- Code to restrict data value range : [Min Max Values](https://stackoverflow.com/questions/65416042/max-and-min-values-for-a-django-model-field-according-to-the-values-already-int)
+- Information on how to round decimal field to 2 places : [Round Decimals](https://stackoverflow.com/questions/37958130/automatically-round-djangos-decimalfield-according-to-the-max-digits-and-decima)
+- Information on how to implement jumbotron images : [Jumbotron](https://stackoverflow.com/questions/22000754/responsive-bootstrap-jumbotron-background-image)
+- Code on how to remove trailing zeroes from decimal fields : [Normalize function](https://stackoverflow.com/questions/40135464/django-remove-trailing-zeroes-for-a-decimal-in-a-template)
+- Setting to turn off auth email verification : [EMAIL VERIFICATION](https://stackoverflow.com/questions/53968044/django-user-registration-error-with-django-rest-auth-package)
+- Some ideas on how to format the authentication/Sign in/Registration pages came from : [Page layout demo](https://www.bootstrapdash.com/product/free-bootstrap-login/#product-demo-section)
+- Code to 'bold' active navbar link : [Active Link](https://stackoverflow.com/questions/32931436/active-tag-on-bootstrap-with-django)
+- Code to remove class from base.html : [Override class](https://stackoverflow.com/questions/34232936/dry-method-to-add-a-class-to-body-in-the-base-template)
+- Code to help with order_by for composite foreign key : [Composite order](https://stackoverflow.com/questions/1474135/django-admin-ordering-of-foreignkey-and-manytomanyfield-relations-referencing-u)
+- Code to help filter upcoming bookings : [Date handling](https://stackoverflow.com/questions/21576727/django-records-greater-than-particular-date)
+- Code to build dropdown for schedule : [Drop-down control](https://stackoverflow.com/questions/57533058/django-how-to-add-items-to-bootstrap-dropdown)
+- Code on how to build dropdown : [Additional Drop-down information](https://getbootstrap.com/docs/5.0/components/dropdowns/)
+- Code on how to convert number string to list : [Python lists](https://stackoverflow.com/questions/4395230/building-a-list-in-django-templates)
+- Code on how to display messages to user : [Alert messages](https://stackoverflow.com/questions/28240746/django-how-to-implement-alertpopup-message-after-complete-method-in-view)
+- Additional code on alert message handling : [Fade and Slide](https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close)
+- Code to test automatically generated dates : [Date Mocking](https://stackoverflow.com/questions/49874923/how-to-test-auto-now-add-in-django)
+- Code on how to use setUpTestData : [Test Data generation](https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup)
+- Code on how to create a user reference and log them in : [Test User login](https://stackoverflow.com/questions/2619102/djangos-self-client-login-does-not-work-in-unit-tests)
+- Code to help with naive date : [Timezone aware dates](https://stackoverflow.com/questions/4530069/how-do-i-get-a-value-of-datetime-today-in-python-that-is-timezone-aware)
+- Code to help with testing admin.py customizations : [Custom Admin test](https://newbedev.com/testing-custom-admin-actions-in-django)
+- Code on how to delay jest test : [Jest Delay](https://stackoverflow.com/questions/46077176/jest-settimeout-not-pausing-test)
+- Code on how to stop jquery animations for jest testing : [De-activate animations](https://stackoverflow.com/questions/61295452/jest-test-jquery-fadein-fadeout-on-specific-elements)
 
 ### Content 
 - Information on individual hikes was found on the Government of Canada - Parks Canada website : [Parks Canada](https://www.pc.gc.ca/en/pn-np/ab/banff/activ/randonee-hiking)
 
 ### Media 
-- The fonts used were imported from [Google Fonts](https://fonts.google.com/)
-- to be written [Font Awesome](https://fontawesome.com/)
-- to be written
-- The favicon was created from the "exchange" icon image on [Font Awesome](https://fontawesome.com/) ???????????????????  to be written ??????????????
-- ??? default hike image - boot crossing stream - Photo by <a href="https://unsplash.com/@sickhews?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wes Hicks</a> on <a href="https://unsplash.com/s/photos/hiking-boots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- jumbotron background - woman on boulder - Photo by <a href="https://unsplash.com/@stephenleo1982?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Stephen Leonardi</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-
-hike_pic_1.jpg : Photo by <a href="https://unsplash.com/@caraventurera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Cara Fuller</a> on <a href="https://unsplash.com/s/photos/hike-waterfall?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_2.jpg : Photo by <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_3.jpg : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hiking-canada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_4.jpg : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hiking-canada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_5.jpg : Photo by <a href="https://unsplash.com/@hollymandarich?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Holly Mandarich</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_6.jpg : Photo by <a href="https://unsplash.com/@toomastartes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toomas Tartes</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_7.jpg : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-hike_pic_10.jpg : Photo by <a href="https://unsplash.com/@guernseyphotographer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon English</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_11.jpg : Photo by <a href="https://unsplash.com/@wanderingteddybear?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ted Bryan Yu</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-hike_pic_12.jpg : Photo by <a href="https://unsplash.com/@hiking_corgi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vlad D</a> on <a href="https://unsplash.com/s/photos/hike-meadow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-  
-background for login : Photo by <a href="https://unsplash.com/@baileyzindel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bailey Zindel</a> on <a href="https://unsplash.com/s/photos/mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- The Lato font used was imported from [Google Fonts](https://fonts.google.com/)
+- Fontawesome was used for icons, including icons for like, comments, user - [Font Awesome](https://fontawesome.com/)
+- The applicaiton favicon was created from the "exchange" icon image on [Font Awesome](https://fontawesome.com/) 
+- The default hike image : Photo by <a href="https://unsplash.com/@sickhews?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wes Hicks</a> on <a href="https://unsplash.com/s/photos/hiking-boots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Jumbotron background image : Photo by <a href="https://unsplash.com/@stephenleo1982?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Stephen Leonardi</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@caraventurera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Cara Fuller</a> on <a href="https://unsplash.com/s/photos/hike-waterfall?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@larisabirta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Larisa Birta</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hiking-canada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hiking-canada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@hollymandarich?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Holly Mandarich</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@toomastartes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toomas Tartes</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@kalenemsley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kalen Emsley</a> on <a href="https://unsplash.com/s/photos/hike?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@guernseyphotographer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon English</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@wanderingteddybear?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ted Bryan Yu</a> on <a href="https://unsplash.com/s/photos/hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Hike image : Photo by <a href="https://unsplash.com/@hiking_corgi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vlad D</a> on <a href="https://unsplash.com/s/photos/hike-meadow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Background for Register, Sign in and Sign out : Photo by <a href="https://unsplash.com/@baileyzindel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bailey Zindel</a> on <a href="https://unsplash.com/s/photos/mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
   
-
 ### Acknowledgments
 
-- to be written
+- Thank you to my mentor Brian Macharia for his continuing help and feedback. His advice and tips have been very beneficial, especially in the area of coding standards and best practice.
