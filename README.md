@@ -39,13 +39,13 @@ The admin user of the site can add new hike routes, approve general user comment
 * US07: Cancel a hike booking
   - As a **Site User** I can **cancel a hike I have booked** so that **a place is no longer reserved for me**
 * US08: View likes
-  - As a **Site User/Admin** I can **view the number of likes on each hike** so that **I can see which are most popular**
+  - As a **Site User** I can **view the number of likes on each hike** so that **I can see which are most popular**
 * US09: Like / Unlike a hike
   - As a **Site User** I can **like or unlike a hike** so that **I can give feedback on my experience**
 * US10: Comment on hike
   - As a **Site User** I can **attach comments to a hike** so that **I can give feedback and be involved in the conversation**
 * US11: View comments
-  - As a **Site User/Admin** I can **view comments on individual hikes** so that **feedback can be recorded to help identify any improvements needed or any aspects that worked well**
+  - As a **Site User** I can **view comments on individual hikes** so that **feedback can be recorded to help identify any improvements needed or any aspects that worked well**
 * US12: Approve comments
   - As a **Site Admin** I can **review and then approve or disapprove comments** so that **unsuitable or objectionable content can be filtered out**
 * US13: Account registration and login
@@ -65,7 +65,7 @@ The admin user of the site can add new hike routes, approve general user comment
 
 -   __F01 Navigation Bar__
     
-    The navigation bar has a consistent look and placement each page supporting easy and intuitive navigation.  It includes a Logo, and a link to the Home page. If the user is not signed in then links are availabe to the Register and Sign in pages.  If a user is signed in then the links availabe in addition to the Home link are for My Bookings and Sign out; and the active username and a user icon are also displayed.
+    The navigation bar has a consistent look and placement each page supporting easy and intuitive navigation.  It includes a Logo, and a link to the Home page. If the user is not signed in then links are available to the Register and Sign in pages.  If a user is signed in then the links available, in addition to the Home link, are for My Bookings and Sign out; and the active username and a user icon are also displayed.
     
     If the user signed in is the admin user then an additional link of Admin is also shown on the navigation bar.  This link takes the user to the Django Admin screens where data in the underlying database can be added, retrieved, modified and deleted.
     
@@ -84,7 +84,7 @@ The admin user of the site can add new hike routes, approve general user comment
 
 -   __F03 Hike Summaries__
     
-    Further down on the landing/home page a list of hike summaries are shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
+    Further down on the landing/home page a list of hike summaries is shown.  Each summary gives an image of the hike, a title, details on distance and estimated duration, number of likes and easy to read label on the hike image rating the difficulty of the route - easy/moderate/hard.   At a glance the user can decide quickly if this is a hike that might appeal to them.  To keep the page uncluttered, summaries are limited to a maximum of 6 per page, with pagination available when more than 6 hike routes exist.
     
     ![Hike Summaries](documentation/supp-images/f03-hike-summaries.png)
 
@@ -98,7 +98,7 @@ The admin user of the site can add new hike routes, approve general user comment
     
     In order to comment on a hike a user must be signed in.  A comment can be added on any Hike Detail page.  The user enters their comment in a text box under the hike description and clicks on Submit.  The comment must be approved by the admin user before it will be visible on the Hike Detail page.  
     
-    To approve comments the admin user logs in to the admin pages, selects the comment(s) to be approved, chooses the 'Approve Comments' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the comment row to open it, updating the value in the approved field and saving the update.
+    To approve comments the admin user logs in to the admin pages, opens the Comments table, selects the comment(s) to be approved, chooses the 'Approve Comments' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the comment row to open it, updating the value in the approved field and saving the update.
     
     All comments approved for a hike are shown on that hike's Hike Detail page in the order of newest first.
 
@@ -113,13 +113,13 @@ The admin user of the site can add new hike routes, approve general user comment
 
 -   __F07 Book a hike__
     
-    In order to book a hike a user must be signed in.  A hike can be booked from it's Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book button to complete the booking and be re-directed to their My Bookings page to see all of their upcoming and past bookings.
+    In order to book a hike a user must be signed in.  A hike can be booked from it's Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book button to complete the booking and get re-directed to their My Bookings page to see all of their upcoming and past bookings.
 
     The list of scheduled hikes drop-down on the Hike Detail page will only show hikes in the future, not any with dates in the past.  If no future dates/times are scheduled for a hike then the list is empty and the Book button is deactivated.
 
     All of the users booked hikes will appear on their My Bookings page - even if not yet confirmed/approved - this allows the user to see if their booking request has been accepted or not.  Bookings need to be confirmed by admin to ensure that a hike is not over booked.
 
-    To approve bookings the admin user logs in to the admin pages, selects the booking(s) to be approved, chooses the 'Approve Bookings' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the booking row to open it, updating the value in the approved field and saving the update.
+    To approve bookings the admin user logs in to the admin pages, opens the Bookings table, selects the booking(s) to be approved, chooses the 'Approve Bookings' action from the drop-down menu and clicks 'Go'.  Alternatively, they can be approved one at a time by clicking on the booking row to open it, updating the value in the approved field and saving the update.
 
     ![Book Hike](documentation/supp-images/f07-book-hike.png)
 
@@ -127,7 +127,7 @@ The admin user of the site can add new hike routes, approve general user comment
 
 -   __F08 My Bookings Page__
     
-    In order to access the My Bookings page a user must be signed in.  The My Bookings page provides a convenient place for the user to quickly view their upcoming and past bookings.  Upcoming bookings can be cancelled using the Cancel Booking button associated with the booking - this will be detailed in section F09 below.  By clicking on the image associated with the booking the user can go to the Hike Detail page for the hike.   The booking also summaries the number of people the booking is for and whether or not the booking has been confirmed/approved.
+    In order to access the My Bookings page a user must be signed in.  The My Bookings page provides a convenient place for the user to quickly view their upcoming and past bookings.  Upcoming bookings can be cancelled using the Cancel Booking button associated with the booking - this will be detailed in section F09 below.  By clicking on the image associated with the booking the user can go to the Hike Detail page for the hike.   The booking also shows the number of people the booking is for and whether or not the booking has been confirmed/approved.
 
     ![My Bookings](documentation/supp-images/f08-my-bookings.png)
 
@@ -142,24 +142,24 @@ The admin user of the site can add new hike routes, approve general user comment
     The application provides the following user authentication related functions :
 
     - User Registration
-      A user needs to be registered before they can sign in.  The option to Register appears on the Navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
+      - A user needs to be registered before they can sign in.  The option to Register appears on the Navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
 
-      ![Register User](documentation/supp-images/f10-register-user.png)
+        ![Register User](documentation/supp-images/f10-register-user.png)
 
     - User Sign in
-      Once registered a user can sign in and will have access to extra functionality, namely :
+      - Once registered a user can sign in and will have access to extra functionality, namely :
         - can comment on a hike
         - can like a hike
         - can book and cancel hikes
 
-      To sign in the user must provide a) a registered username and b) the password for the username
+      - To sign in the user must provide a) a registered username and b) the password for the username
      
-      ![Sign in User](documentation/supp-images/f11-signin-user.png)
+        ![Sign in User](documentation/supp-images/f11-signin-user.png)
       
     - User Sign out
-      A signed in user can sign out by clicking on the Sign out link on the Navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
+      - A signed in user can sign out by clicking on the Sign out link on the Navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
 
-      ![Sign out User](documentation/supp-images/f12-signout-user.png)
+        ![Sign out User](documentation/supp-images/f12-signout-user.png)
 
 -   __F11 Add and Publish a hike__
     
