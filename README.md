@@ -31,7 +31,7 @@ The admin user of the site can add new hike routes, approve general user comment
 * US03: View hike/excursion list
   - As a **Site User** I can **view a list of hikes/excursions** so that **I can select one to access more details**
 * US04: View hike information
-  - As a **Site User** I can **click on a Hike** so that **I can view it's full details**
+  - As a **Site User** I can **click on a Hike** so that **I can view its full details**
 * US05: Book a hike
   - As a **Site User** I can **book a scheduled hike** so that **a place is reserved for me**
 * US06: View booked hikes
@@ -107,13 +107,13 @@ The admin user of the site can add new hike routes, approve general user comment
     ![Approve Hike Comment](documentation/supp-images/f05-approve-hike-comment.png)
 
 -   __F06 Like a hike__
-    In order to like a hike a user must be signed in.  A hike can be liked on it's Hike Detail page.  The user simply needs to click on the like/heart icon to toggle between like/unlike.
+    In order to like a hike a user must be signed in.  A hike can be liked on its Hike Detail page.  The user simply needs to click on the like/heart icon to toggle between like/unlike.
 
     ![Like Hike](documentation/supp-images/f06-like-hike.png)
 
 -   __F07 Book a hike__
     
-    In order to book a hike a user must be signed in.  A hike can be booked from it's Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book button to complete the booking and get re-directed to their My Bookings page to see all of their upcoming and past bookings.
+    In order to book a hike a user must be signed in.  A hike can be booked from its Hike Detail page.  The user selects a hike date/time from the drop-down list of scheduled hikes and can choose a number 1 to 5 to indicate how many people they want included on their booking.  Then the user clicks on the Book button to complete the booking and get re-directed to their My Bookings page to see all of their upcoming and past bookings.
 
     The list of scheduled hikes drop-down on the Hike Detail page will only show hikes in the future, not any with dates in the past.  If no future dates/times are scheduled for a hike then the list is empty and the Book button is deactivated.
 
@@ -142,7 +142,7 @@ The admin user of the site can add new hike routes, approve general user comment
     The application provides the following user authentication related functions :
 
     - User Registration
-      - A user needs to be registered before they can sign in.  The option to Register appears on the Navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
+      - A user needs to be registered before they can sign in.  The option to Register appears on the navigation bar when no user is currently signed in.  To Register, the user needs to provide a) a username which has not already been registered, b) an optional email address (if this is provided then it needs to be an email address that is not already registered) and c) a password which they must enter twice.  Once registered a user can sign in.
 
         ![Register User](documentation/supp-images/f10-register-user.png)
 
@@ -157,21 +157,21 @@ The admin user of the site can add new hike routes, approve general user comment
         ![Sign in User](documentation/supp-images/f11-signin-user.png)
       
     - User Sign out
-      - A signed in user can sign out by clicking on the Sign out link on the Navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
+      - A signed in user can sign out by clicking on the Sign out link on the navigation bar.  The user simply needs to confirm the action by clicking on the Sign out button on the page.
 
         ![Sign out User](documentation/supp-images/f12-signout-user.png)
 
 -   __F11 Add and Publish a hike__
     
-    The admin user adds and publishes hikes using the admin pages.  The admin user can access these pages either by appending '/admin' to the application url or by signing up to the application and clicking on the Admin link that appears on the Navigation bar only when admin is signed in.
+    The admin user adds and publishes hikes using the admin pages.  The admin user can access these pages either by appending '/admin' to the application url or by signing in to the application and clicking on the Admin link that appears on the navigation bar only when admin is signed in.
 
-    To add a new hike, the admin user can use the "+ Add" link on the rhs of the Hike table and then fill in the data fields for the hike.  Hike titles must be unique and a slug will be automatically generated as the title is typed in.   A rich editor (summernote) is made available for the hike description Content so that formatting can be easily added.  Hike difficulty is selected from a drop-down list and the distance and duration numbers are rounded to 2 decimal places.  A default image will be used for the hike if the admin user does not upload one.  Hikes can be saved with a status of Draft (default) and will not be visible to general users until this status is updated to Published - this allows the admin to save a hike a WIP and finish it later.
+    To add a new hike, the admin user can use the "+ Add" link to the right of the Hike table name and then fill in the data fields for the hike.  Hike titles must be unique and a slug will be automatically generated as the title is typed in.   A rich editor (summernote) is made available for the hike description content field so that formatting can be easily added.  Hike difficulty is selected from a drop-down list and the distance and duration numbers are rounded to 2 decimal places.  A default image will be used for the hike if the admin user does not upload one.  Hikes can be saved with a status of Draft (default) and will not be visible to general users until this status is updated to Published - this allows the admin to save a hike a WIP and finish it later.
 
     ![Add a hike](documentation/supp-images/f13-add-a-hike.png)
 
 -   __F12 Add a schedule for a hike__
     
-    The admin user adds scheduled hikes using the admin pages.  See F13 on the admin user can navigate to the admin pages.
+    The admin user adds scheduled hikes using the admin pages.  See F11 above on how the admin user can navigate to the admin pages.
 
     To add a new date/time for a hike the admin user can use the "+ Add" link for the Schedule table.  To fill in the data fields a hike needs to be selected from the drop-down list of existing hikes, a date and time needs to be specified and text is added specifying where the meeting point for the hike will be.
 
@@ -197,17 +197,17 @@ The admin user of the site can add new hike routes, approve general user comment
 
 ### Features which could be implemented in the future
 
--   __Improve modal dialg to confirm deletion__
+-   __Improve modal dialog to confirm deletion__
     
-    The dialog to ask the user to confirm that they want to cancel a booking is very basic and should be improved have a format consistent with the application.
+    The dialog to ask the user to confirm that they want to cancel a booking is very basic and could be improved have a format consistent with the application.
 
 -   __Improve UI with intuitive schedule calendar__
     
-    Ideally the selection of booking dates and times would use a more sophisticated visual calendar with available days selectable and with a different colour background. 
+    Ideally the selection of booking dates and times would use a more sophisticated visual calendar with available days selectable and colour-coded. 
 
 -   __Add hike capacity handling functionality__
     
-    Ensuring that bookings do no exceed capacity is currently handled by requiring that the admin use confirm/approve bookings.  This could be improved by including a capacity limit field in the schedule table and adding logic to calculate remaining spaces available as part of data validation on booking.
+    Ensuring that bookings do not exceed capacity is currently handled by requiring that the admin user confirm/approve bookings.  This could be improved by including a capacity limit field in the schedule table and adding logic to calculate remaining spaces available as part of data validation on booking.
 
 -   __Improve UI with visual route maps__
     
@@ -215,13 +215,13 @@ The admin user of the site can add new hike routes, approve general user comment
 
 -   __Improve integration of admin pages__
     
-    A link to the Admin pages from the application nav bar was added and the favicon appears on the adming pages but the overall look and feel of the admin pages could be restyled to better integrate them with the application
+    A link to the Admin pages from the application navigation bar was added and the favicon appears on the admin pages but the overall look and feel of the admin pages could be restyled to better integrate them with the application.
 
 ## Design
 
 -   ### Wireframes
 
-    The wireframe diagrams below describe the Home, Hike Detail, My Bookings, Sign in, Sign out and Register pages.  Wireframes are not provided for theDjango Admin pages used by the application to create data records, publish hike data, approve comments and bookings.
+    The wireframe diagrams below describe the Home, Hike Detail, My Bookings, Sign in, Sign out and Register pages.  Wireframes are not provided for the Django Admin pages used by the application to create data records, publish hike data, approve comments and bookings.
 
     <details>
     <summary>Desktop Wireframes</summary>
@@ -243,13 +243,13 @@ The admin user of the site can add new hike routes, approve general user comment
     
       Notes on the ER diagrams :
 
-      - The ER diagrams provided show the logical data model.  The many-to-many relationship between hikes and likes is represented as normalized tables to clarify the relationship.  In the models.py file the likes data item is declared as part of the Hike class, with django handling how this relationship is represented in the physical database tables in the background.
+      - The ER diagrams provided show the logical data model.  The many-to-many relationship between hikes and their 'likes' is represented as normalized tables to clarify the relationship.  In the models.py file the 'likes' data item is declared as part of the Hike class, with django handling how this relationship is represented in the physical database tables in the background.
 
-      - The users table in the ER diagrams is also a logical representation of the data captured during user registration and how it relates to the application data model.  The users table itself is not declared in the models.py file, but is handled by the django modules and this logical view does not reflect all columns and constraints etc. used by the physical data tables in the database.
+      - The Users table in the ER diagrams is also a logical representation of the data captured during user registration and how it relates to the application data model.  The Users table itself is not declared in the models.py file, but is handled by the django modules and this logical view does not reflect all columns and constraints etc. used by the physical data tables in the database.
 
       - The data model tables are split into two diagrams so that the relationships between the tables can be easily read.
 
-      - A booking is a many-to-many relationship between schedule and users but because it also has it's own data - places_reserved, it is declared as it's own separate class in models.py
+      - A booking is a many-to-many relationship between Schedule and Users but because it also has its own data - places_reserved, it is declared in its own separate class in models.py
 
       - Because there could be multiple guided hikes on the same hike trail in a single day, the schedule table needs a composite primary key of the hike_id and 'starts' column.  This is handled using a constraint in models.py.
 
@@ -266,7 +266,7 @@ The admin user of the site can add new hike routes, approve general user comment
 
 ## Planning
 
-A GitHub project with linked issues was used as the Agile tool for this project.  User Stories with acceptance criteria were defined using GitHub Issues and development of code for these stories was managed using a Kanban board.  All of the User Stories were linked to a 'parent' Epic issue to show how they all supported the over-arching goal of the project.  The acceptance criteria were tested as each story moved to 'Done' and were also included in the final pre-submission manual testing documented in the Testing section of this README.
+A GitHub Project with linked Issues was used as the Agile tool for this project.  User Stories with acceptance criteria were defined using GitHub Issues and development of code for these stories was managed using a Kanban board.  All of the User Stories were linked to a 'parent' Epic issue to show how they all supported the over-arching goal of the project.  The acceptance criteria were tested as each story moved to 'Done' and were also included in the final pre-submission manual testing documented in the Testing section of this README.
 
 The Epic, User Stories and Kanban board can be accessed here : [Wayfarers Agile Tool](https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/projects/1)
 
@@ -285,14 +285,14 @@ The Epic, User Stories and Kanban board can be accessed here : [Wayfarers Agile 
 -   [Google Fonts:](https://fonts.google.com/) used for the Lato font
 -   [Font Awesome:](https://fontawesome.com/) was used to add icons for aesthetic and UX purposes.
 -   [Git:](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
--   [GitHub:](https://github.com/) is used as the respository for the projects code after being pushed from Git. In addition, for this project GitHub was used for the agile development aspect through the use of User Stories (GitHub Issues) and tracking them on a Kanban board.
+-   [GitHub:](https://github.com/) is used as the respository for the project code after being pushed from Git. In addition, for this project GitHub was used for the agile development aspect through the use of User Stories (GitHub Issues) and tracking them on a Kanban board.
 -   [dbdiagram.io](https://dbdiagram.io/home) was used to create the Entity Relationship diagrams for the application data model
 -   [Balsamiq:](https://balsamiq.com/) was used to create the wireframes during the design process.
--   [Django](https://www.djangoproject.com/) used as the framework to support rapid and secure development of the application
--   [Bootstrap](https://getbootstrap.com/) used to build responsive web pages
--   [Gunicorn](https://gunicorn.org/) used as the Web Server to run Django on Heroku
--   [dj_database_url](https://pypi.org/project/dj-database-url/) library to allow use database urls to connect to the postgres db
--   [psycopg2](https://pypi.org/project/psycopg2/) database adapter to support the connection to the postgres db
+-   [Django](https://www.djangoproject.com/) was used as the framework to support rapid and secure development of the application
+-   [Bootstrap](https://getbootstrap.com/) was used to build responsive web pages
+-   [Gunicorn](https://gunicorn.org/) was used as the Web Server to run Django on Heroku
+-   [dj_database_url](https://pypi.org/project/dj-database-url/) library used to allow database urls to connect to the postgres db
+-   [psycopg2](https://pypi.org/project/psycopg2/) database adapter used to support the connection to the postgres db
 -   [Cloudinary](https://cloudinary.com/) used to store the images used by the application
 -   [Summernote](https://pypi.org/project/django-summernote/) used to provide WYSIWYG editing on the Hike editing screen
 -   [Django allauth](https://django-allauth.readthedocs.io/en/latest/index.html) used for account registration and authentication
