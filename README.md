@@ -342,7 +342,7 @@ automated tests
       - <details>
         <summary>Signup/Register Page - Summary</summary>
 
-        ![Signup/Register Page - Summary](documentation/testing/validation/html-validation-img-rendered-signup-page.png)
+        ![Signup/Register Page - Summary](documentation/testing/validation/html-validation-img-rendered-register-page.png)
       </details>
 
       - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/7c58bd1b37673c319886014673d484dabf7299f2/documentation/testing/validation/html-validation-rendered-signup-page.pdf" target="_blank">Signup/Register Page - Full HTML Validation Results</a>
@@ -451,7 +451,7 @@ automated tests
 
 ### Automated Testing
 
-  - [Jest](https://jestjs.io/) was used to test the application javascript and jquery code.  The functionality tested was code to fade out, slide up and remove any raised alert messages after a 5 second delay.  The code is located in [Script JS](static/js/script.js), the test is located in [Test JS](static/js/tests/script.test.js)
+  - [Jest](https://jestjs.io/) was used to test the application javascript and jquery code.  The functionality tested was the code to fade out, slide up and remove any raised alert messages after a 5 second delay.  The code is located in [Script JS](static/js/script.js), the test is located in [Test JS](static/js/tests/script.test.js)
 
   - Jest test results :     
     ![JS Test Results](documentation/testing/results/jquery-test-results.png)
@@ -479,7 +479,7 @@ automated tests
     
 ### Manual Testing Test Cases and Results
 
-- The below pdf details the test cases that were used, the results and a cross-reference to the Feature ID that each test case exercised (click link to open pdf).  The test cases are primarily based on the User Story acceptance criteria that we used to test iterations of the code during development.
+- The link below details the test cases that were used, the results, and a cross-reference to the Feature ID that each test case exercised (click link to open pdf).  The test cases are primarily based on the User Story acceptance criteria that were used to test iterations of the code during development.
   
   - <a href="https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes/blob/517f5abbe2b0bd575b9da340f0560d13466340a4/documentation/testing/results/test-cases.pdf" target="_blank">Manual Testing - Test Cases and Results</a>
 
