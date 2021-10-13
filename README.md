@@ -489,7 +489,7 @@ automated tests
 
 ## Deployment
 
-Detailed below are instructions on how to clone this project repository and the steps to configure and deploy the application.  Code Institute also provides a summary of these steps here : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
+Detailed below are instructions on how to clone this project repository and the steps to configure and deploy the application.  Code Institute also provides a summary of similar process steps here : [CI Cheat Sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
 
 1. How to Clone the Repository
 2. Create Application and Postgres DB on Heroku
@@ -499,7 +499,7 @@ Detailed below are instructions on how to clone this project repository and the 
 
 ### How to Clone the Repository 
 
-- Go to the https://github.com/elainebroche-dev/pf4-guided-hike-booker repository on GitHub 
+- Go to the https://github.com/elainebroche-dev/pf4-wayfarers-guided-hikes repository on GitHub 
 - Click the "Code" button to the right of the screen, click HTTPs and copy the link there
 - Open a GitBash terminal and navigate to the directory where you want to locate the clone
 - On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process
@@ -511,7 +511,7 @@ Detailed below are instructions on how to clone this project repository and the 
   - git commit -m *"text message describing changes"*
   - git push
 
-- N.B. Any changes pushed to the master branch will take effect on the live project
+- N.B. Any changes pushed to the master branch will take effect on the live project once the application is re-deployed from Heroku
 
 ### Create Application and Postgres DB on Heroku
 - Log in to Heroku at https://heroku.com - create an account if needed.
@@ -519,7 +519,7 @@ Detailed below are instructions on how to clone this project repository and the 
 - On the Create New App page, enter a unique name for the application and select region.  Then click Create app.
 - On the Application Configuration page for the new app, click on the Resources tab.
 - In the Add-ons search bar enter "Postgres" and select "Heroku Postgres" from the list - click the "Submit Order Form" button on the pop-up dialog.
-- Next click on Settings on the Application Configuration page and click on the "Reveal Config Vars" button - check the DATABASE_URL has been automatically set up. 
+- Next, click on Settings on the Application Configuration page and click on the "Reveal Config Vars" button - check the DATABASE_URL has been automatically set up. 
 - Add a new Config Var called DISABLE_COLLECTSTATIC and assign it a value of 1.
 - Add a new Config Var called SECRET_KEY and assign it a value - any random string of letters, digits and symbols.
 - The settings.py file should be updated to use the DATABASE_URL and SECRET_KEY environment variable values as follows :
@@ -528,17 +528,17 @@ Detailed below are instructions on how to clone this project repository and the 
 
   - SECRET_KEY = os.environ.get('SECRET_KEY')
 
-- In Gitpod, in the project terminal window, run the command : python3 manage.py migrate to initialize the data model in postgres database.
+- In Gitpod, in the project terminal window, to initialize the data model in the postgres database, run the command : python3 manage.py migrate 
 - Make sure the project requirements.txt file is up to date with all necessary supporting files by entering the command : pip3 freeze --local > requirements.txt
 - Commit and push any local changes to GitHub.
-- In order to be able to run the application on localhost, also add SECRECT_KEY and DATABASE_URL to env.py
+- In order to be able to run the application on localhost, add SECRECT_KEY and DATABASE_URL and their values to env.py
 
 ### Configure Cloudinary to host images used by the application
-- Log in to Cloudinary - create an account if needed.  To create the account provide your name, email and setup a password.  For "primary interest" you can choose "Programmable Media for image and video API".  Click "Create Account" and you will be sent an email to verify your account and bring you to the dashboard.
+- Log in to Cloudinary - create an account if needed.  To create the account provide your name, email and set up a password.  For "primary interest" you can choose "Programmable Media for image and video API".  Click "Create Account" and you will be sent an email to verify your account and bring you to the dashboard.
 - From the dashboard, copy the "API Environment variable" value by clicking on the "Copy to clipboard" link.
 - Log in to Heroku and go to the Application Configuration page for the application.  Click on Settings and click on the "Reveal Config Vars" button.
 - Add a new Config Var called CLOUDINARY_URL and assign it the value copied from the Cloudinary dashboard, but remove the "CLOUDINARY_URL=" at the beginning of the string. 
-- In order to be able to run the application on localhost, also add CLOUDINARY_URL to env.py
+- In order to be able to run the application on localhost, also add the CLOUDINARY_URL environment variable and value to env.py
 
 ### Connect the Heroku app to the GitHub repository
 - Go to the Application Configuration page for the application on Heroku and click on the Deploy tab.
@@ -548,15 +548,15 @@ Detailed below are instructions on how to clone this project repository and the 
 - The live link for this project is (https://pf4-wayfarers.herokuapp.com/)
 
 ### Final Deployment steps
-Once code changes have been completed and tested on localhost, the application can prepared for release deployment as follows :
+Once code changes have been completed and tested on localhost, the application can be prepared for Heroku deployment as follows :
 - Set DEBUG flag to False in settings.py
-- Add this line to the settings.py to make summernote work on deployed environment (security feature CORS): X_FRAME_OPTIONS = 'SAMEORIGIN'
+- Ensure this line exists in settings.py to make summernote work on the deployed environment (CORS security feature): X_FRAME_OPTIONS = 'SAMEORIGIN'
 - Ensure requirements.txt is up to date using the command : pip3 freeze --local > requirements.txt
 - Push files to GitHub
-- In the Heroku Config Vars for the application delete this variable :  DISABLE_COLLECTSTATIC
+- In the Heroku Config Vars for the application delete this environment variable :  DISABLE_COLLECTSTATIC
 - On the Heroku dashboard go to the Deploy tab for the application and click on deploy branch
 
-### The live link can be found here - [P4-Wayfarers](https://pf4-wayfarers.herokuapp.com/) 
+#### The live link to the application can be found here - [P4 Wayfarers Hikes](https://pf4-wayfarers.herokuapp.com/) 
 
 
 ## Credits 
