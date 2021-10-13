@@ -563,7 +563,7 @@ Detailed below are instructions on how to clone this project repository and the 
     - coverage run --source=hikebooker manage.py test
     - coverage report
     - coverage html
-    - python3 -m http.server
+    - python3 -m http.server  (detailed results can be viewed via the browser in the htmlcov directory)
 
 
 ### Final Deployment steps
