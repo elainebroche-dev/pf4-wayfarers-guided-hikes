@@ -495,7 +495,8 @@ Detailed below are instructions on how to clone this project repository and the 
 2. Create Application and Postgres DB on Heroku
 3. Configure Cloudinary to host images used by the application
 4. Connect the Heroku app to the GitHub repository
-5. Final Deployment steps
+5. Executing automated tests
+6. Final Deployment steps
 
 ### How to Clone the Repository 
 
@@ -546,6 +547,24 @@ Detailed below are instructions on how to clone this project repository and the 
 - Scroll down the page and choose to either Automatically Deploy each time changes are pushed to GitHub, or Manually deploy - for this project Manual Deploy was selected.
 - The application can be run from the Application Configuration page by clicking on the Open App button.
 - The live link for this project is (https://pf4-wayfarers.herokuapp.com/)
+
+### Executing automated tests
+- The existing automated jquery/javascript test can be executed using jest as follows :
+  - If jest is not installed then run the command : npm install --save-dev jest
+  - Run the js test file using the command : npm test
+
+- The existing automated django/python tests are executed using unittest as follows :
+  - Run the python tests using the command : python3 manage.py test
+  - To run just a subset of the tests, then append the application and test file name to the command, e.g. : python3 manage.py test hikebooker.test_models
+
+- Test coverage for the django/python tests can be reviewed using the coverage tool :
+  - If coverage is not installed then run the command : pip3 install coverage
+  - Execute the following series of commands to determine test coverage :
+    - coverage run --source=hikebooker manage.py test
+    - coverage report
+    - coverage html
+    - python3 -m http.server
+
 
 ### Final Deployment steps
 Once code changes have been completed and tested on localhost, the application can be prepared for Heroku deployment as follows :
